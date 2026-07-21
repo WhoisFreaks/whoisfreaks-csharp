@@ -32,6 +32,7 @@ docs/DatabasesIPSecurityApi.md
 docs/DatabasesIPWHOISApi.md
 docs/DatabasesNewlyRegisteredApi.md
 docs/DatabasesSubdomainsApi.md
+docs/DatabasesThreatFeedApi.md
 docs/DatabasesWHOISApi.md
 docs/DateRangeStatus.md
 docs/DgaFeatures.md
@@ -92,6 +93,7 @@ docs/SslUnitInfo.md
 docs/Subdomain.md
 docs/SubdomainsApi.md
 docs/SubdomainsResponse.md
+docs/ThreatFeedStatus.md
 docs/ThreatSource.md
 docs/TrustSignals.md
 docs/TyposquattingApi.md
@@ -117,6 +119,7 @@ src/WhoisFreaks.Test/Api/DatabasesIPSecurityApiTests.cs
 src/WhoisFreaks.Test/Api/DatabasesIPWHOISApiTests.cs
 src/WhoisFreaks.Test/Api/DatabasesNewlyRegisteredApiTests.cs
 src/WhoisFreaks.Test/Api/DatabasesSubdomainsApiTests.cs
+src/WhoisFreaks.Test/Api/DatabasesThreatFeedApiTests.cs
 src/WhoisFreaks.Test/Api/DatabasesWHOISApiTests.cs
 src/WhoisFreaks.Test/Api/DomainAvailabilityApiTests.cs
 src/WhoisFreaks.Test/Api/DomainReputationApiTests.cs
@@ -196,6 +199,7 @@ src/WhoisFreaks.Test/Model/SslResponseTests.cs
 src/WhoisFreaks.Test/Model/SslUnitInfoTests.cs
 src/WhoisFreaks.Test/Model/SubdomainTests.cs
 src/WhoisFreaks.Test/Model/SubdomainsResponseTests.cs
+src/WhoisFreaks.Test/Model/ThreatFeedStatusTests.cs
 src/WhoisFreaks.Test/Model/ThreatSourceTests.cs
 src/WhoisFreaks.Test/Model/TrustSignalsTests.cs
 src/WhoisFreaks.Test/Model/TyposquattingDomainTests.cs
@@ -219,6 +223,7 @@ src/WhoisFreaks/Api/DatabasesIPSecurityApi.cs
 src/WhoisFreaks/Api/DatabasesIPWHOISApi.cs
 src/WhoisFreaks/Api/DatabasesNewlyRegisteredApi.cs
 src/WhoisFreaks/Api/DatabasesSubdomainsApi.cs
+src/WhoisFreaks/Api/DatabasesThreatFeedApi.cs
 src/WhoisFreaks/Api/DatabasesWHOISApi.cs
 src/WhoisFreaks/Api/DomainAvailabilityApi.cs
 src/WhoisFreaks/Api/DomainReputationApi.cs
@@ -316,6 +321,7 @@ src/WhoisFreaks/Model/SslResponse.cs
 src/WhoisFreaks/Model/SslUnitInfo.cs
 src/WhoisFreaks/Model/Subdomain.cs
 src/WhoisFreaks/Model/SubdomainsResponse.cs
+src/WhoisFreaks/Model/ThreatFeedStatus.cs
 src/WhoisFreaks/Model/ThreatSource.cs
 src/WhoisFreaks/Model/TrustSignals.cs
 src/WhoisFreaks/Model/TyposquattingDomain.cs

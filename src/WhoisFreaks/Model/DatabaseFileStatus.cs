@@ -41,14 +41,16 @@ namespace WhoisFreaks.Model
         /// <param name="cleanedExpired">cleanedExpired.</param>
         /// <param name="dropped">dropped.</param>
         /// <param name="droppedWithBacklinks">droppedWithBacklinks.</param>
+        /// <param name="threatFeed">threatFeed.</param>
         /// <param name="databaseUpdates">databaseUpdates.</param>
-        public DatabaseFileStatus(NewlyStatus newly = default(NewlyStatus), DateRangeStatus expired = default(DateRangeStatus), DateRangeStatus cleanedExpired = default(DateRangeStatus), DateRangeStatus dropped = default(DateRangeStatus), DateRangeStatus droppedWithBacklinks = default(DateRangeStatus), DatabaseUpdates databaseUpdates = default(DatabaseUpdates))
+        public DatabaseFileStatus(NewlyStatus newly = default(NewlyStatus), DateRangeStatus expired = default(DateRangeStatus), DateRangeStatus cleanedExpired = default(DateRangeStatus), DateRangeStatus dropped = default(DateRangeStatus), DateRangeStatus droppedWithBacklinks = default(DateRangeStatus), ThreatFeedStatus threatFeed = default(ThreatFeedStatus), DatabaseUpdates databaseUpdates = default(DatabaseUpdates))
         {
             this.Newly = newly;
             this.Expired = expired;
             this.CleanedExpired = cleanedExpired;
             this.Dropped = dropped;
             this.DroppedWithBacklinks = droppedWithBacklinks;
+            this.ThreatFeed = threatFeed;
             this.DatabaseUpdates = databaseUpdates;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
@@ -84,6 +86,12 @@ namespace WhoisFreaks.Model
         public DateRangeStatus DroppedWithBacklinks { get; set; }
 
         /// <summary>
+        /// Gets or Sets ThreatFeed
+        /// </summary>
+        [DataMember(Name = "threat_feed", EmitDefaultValue = false)]
+        public ThreatFeedStatus ThreatFeed { get; set; }
+
+        /// <summary>
         /// Gets or Sets DatabaseUpdates
         /// </summary>
         [DataMember(Name = "database_updates", EmitDefaultValue = false)]
@@ -108,6 +116,7 @@ namespace WhoisFreaks.Model
             sb.Append("  CleanedExpired: ").Append(CleanedExpired).Append("\n");
             sb.Append("  Dropped: ").Append(Dropped).Append("\n");
             sb.Append("  DroppedWithBacklinks: ").Append(DroppedWithBacklinks).Append("\n");
+            sb.Append("  ThreatFeed: ").Append(ThreatFeed).Append("\n");
             sb.Append("  DatabaseUpdates: ").Append(DatabaseUpdates).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");

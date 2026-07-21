@@ -101,6 +101,15 @@ namespace WhoisFreaks.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ThreatFeed'
+        /// </summary>
+        [Fact]
+        public void ThreatFeedTest()
+        {
+            // TODO unit test for the property 'ThreatFeed'
+        }
+
+        /// <summary>
         /// Test the property 'DatabaseUpdates'
         /// </summary>
         [Fact]

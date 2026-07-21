@@ -1001,29 +1001,6 @@ paths:
       summary: Account Usage
       tags:
       - Account
-  /v3.3/status:
-    get:
-      description: No API key required. Returns freshness of all downloadable files.
-      operationId: databaseFileStatus
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DatabaseFileStatus'
-          description: Successful response
-        "429":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Too many requests
-      security: []
-      summary: Database File Status (Public)
-      tags:
-      - Account
-    servers:
-    - url: https://files.whoisfreaks.com
   /v3.1/download/domainer/gtld:
     get:
       description: Newly Registered gTLD (CSV). Returns the file/snapshot described
@@ -2173,6 +2150,143 @@ paths:
       summary: Reverse WHOIS lookup by keyword
       tags:
       - WHOIS
+  /v3.4/download/threat-feed/phishing:
+    get:
+      operationId: downloadThreatFeedPhishing
+      parameters:
+      - description: Feed date (yyyy-MM-dd); defaults to latest available
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
+          description: "Phishing threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)"
+      summary: Download the daily phishing threat feed (CSV)
+      tags:
+      - Databases - Threat Feed
+  /v3.4/download/threat-feed/phishing/sample:
+    get:
+      operationId: downloadThreatFeedPhishingSample
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
+          description: Sample phishing threat feed as CSV
+      summary: Download a sample of the phishing threat feed (CSV)
+      tags:
+      - Databases - Threat Feed
+  /v3.4/download/threat-feed/malware:
+    get:
+      operationId: downloadThreatFeedMalware
+      parameters:
+      - description: Feed date (yyyy-MM-dd); defaults to latest available
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
+          description: "Malware threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)"
+      summary: Download the daily malware threat feed (CSV)
+      tags:
+      - Databases - Threat Feed
+  /v3.4/download/threat-feed/malware/sample:
+    get:
+      operationId: downloadThreatFeedMalwareSample
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
+          description: Sample malware threat feed as CSV
+      summary: Download a sample of the malware threat feed (CSV)
+      tags:
+      - Databases - Threat Feed
+  /v3.4/download/threat-feed/spam:
+    get:
+      operationId: downloadThreatFeedSpam
+      parameters:
+      - description: Feed date (yyyy-MM-dd); defaults to latest available
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
+          description: "Spam threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)"
+      summary: Download the daily spam threat feed (CSV)
+      tags:
+      - Databases - Threat Feed
+  /v3.4/download/threat-feed/spam/sample:
+    get:
+      operationId: downloadThreatFeedSpamSample
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/octet-stream:
+              schema:
+                format: binary
+                type: string
+          description: Sample spam threat feed as CSV
+      summary: Download a sample of the spam threat feed (CSV)
+      tags:
+      - Databases - Threat Feed
+  /v3.4/status:
+    get:
+      description: No API key required. Returns freshness of all downloadable files.
+      operationId: databaseFileStatus
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseFileStatus'
+          description: Successful response
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too many requests
+      security: []
+      summary: Database File Status (Public)
+      tags:
+      - Account
+    servers:
+    - url: https://files.whoisfreaks.com
 components:
   parameters:
     Format:
@@ -7392,6 +7506,26 @@ components:
         ip_whois:
           $ref: '#/components/schemas/UpdateFrequencies'
       type: object
+    ThreatFeedStatus:
+      additionalProperties: true
+      example:
+        phishing:
+          last_update: last_update
+          available_from: available_from
+        malware:
+          last_update: last_update
+          available_from: available_from
+        spam:
+          last_update: last_update
+          available_from: available_from
+      properties:
+        phishing:
+          $ref: '#/components/schemas/DateRangeStatus'
+        malware:
+          $ref: '#/components/schemas/DateRangeStatus'
+        spam:
+          $ref: '#/components/schemas/DateRangeStatus'
+      type: object
     DatabaseFileStatus:
       additionalProperties: true
       example:
@@ -7417,6 +7551,16 @@ components:
         expired:
           last_update: last_update
           available_from: available_from
+        threat_feed:
+          phishing:
+            last_update: last_update
+            available_from: available_from
+          malware:
+            last_update: last_update
+            available_from: available_from
+          spam:
+            last_update: last_update
+            available_from: available_from
         dropped:
           last_update: last_update
           available_from: available_from
@@ -7475,6 +7619,8 @@ components:
           $ref: '#/components/schemas/DateRangeStatus'
         dropped_with_backlinks:
           $ref: '#/components/schemas/DateRangeStatus'
+        threat_feed:
+          $ref: '#/components/schemas/ThreatFeedStatus'
         database_updates:
           $ref: '#/components/schemas/DatabaseUpdates'
       type: object
