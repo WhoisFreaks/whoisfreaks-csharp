@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -65,6 +65,15 @@ namespace WhoisFreaks.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'DnsType'
+        /// </summary>
+        [Fact]
+        public void DnsTypeTest()
+        {
+            // TODO unit test for the property 'DnsType'
+        }
+
+        /// <summary>
         /// Test the property 'Name'
         /// </summary>
         [Fact]
@@ -80,6 +89,33 @@ namespace WhoisFreaks.Test.Model
         public void TtlTest()
         {
             // TODO unit test for the property 'Ttl'
+        }
+
+        /// <summary>
+        /// Test the property 'RawText'
+        /// </summary>
+        [Fact]
+        public void RawTextTest()
+        {
+            // TODO unit test for the property 'RawText'
+        }
+
+        /// <summary>
+        /// Test the property 'RRsetType'
+        /// </summary>
+        [Fact]
+        public void RRsetTypeTest()
+        {
+            // TODO unit test for the property 'RRsetType'
+        }
+
+        /// <summary>
+        /// Test the property 'SingleName'
+        /// </summary>
+        [Fact]
+        public void SingleNameTest()
+        {
+            // TODO unit test for the property 'SingleName'
         }
 
         /// <summary>

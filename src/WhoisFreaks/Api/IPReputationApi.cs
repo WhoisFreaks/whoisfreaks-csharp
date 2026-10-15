@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -53,7 +53,7 @@ namespace WhoisFreaks.Api
         /// IP Reputation Lookup
         /// </summary>
         /// <remarks>
-        /// Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+        /// Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ip"></param>
@@ -64,7 +64,7 @@ namespace WhoisFreaks.Api
         /// IP Reputation Lookup
         /// </summary>
         /// <remarks>
-        /// Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+        /// Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ip"></param>
@@ -106,7 +106,7 @@ namespace WhoisFreaks.Api
         /// IP Reputation Lookup
         /// </summary>
         /// <remarks>
-        /// Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+        /// Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ip"></param>
@@ -118,7 +118,7 @@ namespace WhoisFreaks.Api
         /// IP Reputation Lookup
         /// </summary>
         /// <remarks>
-        /// Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+        /// Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ip"></param>
@@ -388,7 +388,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<List<IpReputationResponse>>("/v1.0/security", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v1.0/security";
+
+            var localVarResponse = this.Client.Post<List<IpReputationResponse>>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -453,8 +455,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v1.0/security";
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<List<IpReputationResponse>>("/v1.0/security", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<IpReputationResponse>>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -466,7 +470,7 @@ namespace WhoisFreaks.Api
         }
 
         /// <summary>
-        /// IP Reputation Lookup Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+        /// IP Reputation Lookup Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ip"></param>
@@ -478,7 +482,7 @@ namespace WhoisFreaks.Api
         }
 
         /// <summary>
-        /// IP Reputation Lookup Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+        /// IP Reputation Lookup Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ip"></param>
@@ -514,7 +518,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IpReputationResponse>("/v1.0/security", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v1.0/security";
+
+            var localVarResponse = this.Client.Get<IpReputationResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -526,7 +532,7 @@ namespace WhoisFreaks.Api
         }
 
         /// <summary>
-        /// IP Reputation Lookup Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+        /// IP Reputation Lookup Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ip"></param>
@@ -539,7 +545,7 @@ namespace WhoisFreaks.Api
         }
 
         /// <summary>
-        /// IP Reputation Lookup Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+        /// IP Reputation Lookup Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ip"></param>
@@ -578,8 +584,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v1.0/security";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IpReputationResponse>("/v1.0/security", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<IpReputationResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

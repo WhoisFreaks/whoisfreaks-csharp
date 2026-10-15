@@ -18,6 +18,7 @@ WHOIS Database Daily. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -39,10 +40,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesWHOISApi(httpClient, config, httpClientHandler);
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
 
             try
             {
@@ -119,6 +120,7 @@ WHOIS Database Monthly. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -140,10 +142,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesWHOISApi(httpClient, config, httpClientHandler);
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
 
             try
             {
@@ -220,6 +222,7 @@ WHOIS Database Weekly. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -241,10 +244,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesWHOISApi(httpClient, config, httpClientHandler);
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
 
             try
             {

@@ -19,6 +19,7 @@ Up to 100 domains in one request. 1 credit per successful domain.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -40,8 +41,8 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new WHOISApi(httpClient, config, httpClientHandler);
             var bulkWhoisRequest = new BulkWhoisRequest(); // BulkWhoisRequest | 
             var format = "json";  // string? |  (optional)  (default to json)
@@ -114,12 +115,15 @@ catch (ApiException e)
 
 <a id="whoishistory"></a>
 # **WhoisHistory**
-> WhoisHistoricalResponse WhoisHistory (string domainName, int? page = null, string? format = null)
+> WhoisHistoricalResponse WhoisHistory (string domainName, string? format = null)
 
 Historical WHOIS records for a domain
 
+Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
+
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -141,17 +145,16 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new WHOISApi(httpClient, config, httpClientHandler);
-            var domainName = "domainName_example";  // string | Domain to fetch historical WHOIS records for
-            var page = 56;  // int? | Page number (optional) 
+            var domainName = "whoisfreaks.com";  // string | Domain to fetch historical WHOIS records for
             var format = "json";  // string? |  (optional) 
 
             try
             {
                 // Historical WHOIS records for a domain
-                WhoisHistoricalResponse result = apiInstance.WhoisHistory(domainName, page, format);
+                WhoisHistoricalResponse result = apiInstance.WhoisHistory(domainName, format);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -172,7 +175,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Historical WHOIS records for a domain
-    ApiResponse<WhoisHistoricalResponse> response = apiInstance.WhoisHistoryWithHttpInfo(domainName, page, format);
+    ApiResponse<WhoisHistoricalResponse> response = apiInstance.WhoisHistoryWithHttpInfo(domainName, format);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -190,7 +193,6 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **domainName** | **string** | Domain to fetch historical WHOIS records for |  |
-| **page** | **int?** | Page number | [optional]  |
 | **format** | **string?** |  | [optional]  |
 
 ### Return type
@@ -224,6 +226,7 @@ Real-time WHOIS lookup from authoritative servers. Cost 1 credit.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -245,10 +248,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new WHOISApi(httpClient, config, httpClientHandler);
-            var domainName = whoisfreaks.com;  // string | 
+            var domainName = "whoisfreaks.com";  // string | 
             var format = "json";  // string? |  (optional)  (default to json)
 
             try
@@ -327,6 +330,7 @@ Reverse WHOIS lookup by keyword
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -348,11 +352,11 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new WHOISApi(httpClient, config, httpClientHandler);
-            var keyword = "keyword_example";  // string | Keyword to search across WHOIS records
-            var page = 56;  // int? | Page number (optional) 
+            var keyword = "whoisfreaks";  // string | Keyword to search across WHOIS records
+            var page = 1;  // int? | Page number (optional) 
             var format = "json";  // string? |  (optional) 
 
             try

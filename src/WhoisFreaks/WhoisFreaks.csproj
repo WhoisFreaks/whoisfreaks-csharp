@@ -6,17 +6,19 @@
     <AssemblyName>WhoisFreaks</AssemblyName>
     <PackageId>WhoisFreaks</PackageId>
     <OutputType>Library</OutputType>
-    <Authors>OpenAPI</Authors>
-    <Company>OpenAPI</Company>
-    <AssemblyTitle>OpenAPI Library</AssemblyTitle>
-    <Description>A library generated from a OpenAPI doc</Description>
-    <Copyright>No Copyright</Copyright>
+    <Authors>WhoisFreaks</Authors>
+    <Company>WhoisFreaks</Company>
+    <AssemblyTitle>WhoisFreaks</AssemblyTitle>
+    <Description>C# WHOIS API client for .NET: live, historical, reverse and bulk WHOIS, DNS lookup, domain availability, typosquatting</Description>
+    <Copyright>Copyright (c) 2026 WhoisFreaks</Copyright>
     <RootNamespace>WhoisFreaks</RootNamespace>
-    <Version>0.21.0</Version>
+    <Version>0.23.2</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\WhoisFreaks.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/WhoisFreaks/whoisfreaks-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+    <PackageTags>whois whois-api rdap dns-lookup domain-availability typosquatting reverse-whois dotnet</PackageTags>
     <Nullable>annotations</Nullable>
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
@@ -30,5 +32,12 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+  </ItemGroup>
+  <PropertyGroup>
+    <PackageProjectUrl>https://whoisfreaks.com/products/whois-api</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>

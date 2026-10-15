@@ -19,6 +19,7 @@ IP to City Snapshot. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -40,10 +41,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesIPGeolocationApi(httpClient, config, httpClientHandler);
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly | 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly | 
 
             try
             {
@@ -120,6 +121,7 @@ IP to City Snapshot Status. Returns the file/snapshot described by this operatio
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -141,8 +143,8 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesIPGeolocationApi(httpClient, config, httpClientHandler);
 
             try
@@ -216,6 +218,7 @@ IP to Country Snapshot. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -237,10 +240,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesIPGeolocationApi(httpClient, config, httpClientHandler);
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly | 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly | 
 
             try
             {
@@ -317,6 +320,7 @@ IP to Country Snapshot Status. Returns the file/snapshot described by this opera
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -338,8 +342,8 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesIPGeolocationApi(httpClient, config, httpClientHandler);
 
             try

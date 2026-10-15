@@ -17,6 +17,7 @@ Up to 100 IPs.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -38,8 +39,8 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new IPReputationApi(httpClient, config, httpClientHandler);
             var bulkGeolocationRequest = new BulkGeolocationRequest(); // BulkGeolocationRequest | 
 
@@ -114,10 +115,11 @@ catch (ApiException e)
 
 IP Reputation Lookup
 
-Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -139,10 +141,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new IPReputationApi(httpClient, config, httpClientHandler);
-            var ip = "ip_example";  // string | 
+            var ip = "8.8.8.8";  // string | 
 
             try
             {

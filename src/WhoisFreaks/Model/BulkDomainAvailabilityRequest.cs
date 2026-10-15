@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -36,8 +36,8 @@ namespace WhoisFreaks.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkDomainAvailabilityRequest" /> class.
         /// </summary>
-        /// <param name="domainNames">Mode 1 — list of full domain names. Cannot be used with tld..</param>
-        /// <param name="tld">Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames..</param>
+        /// <param name="domainNames">Mode 1: list of full domain names. Cannot be used with tld..</param>
+        /// <param name="tld">Mode 2: TLDs to check against the domain query param. Cannot be used with domainNames..</param>
         public BulkDomainAvailabilityRequest(List<string> domainNames = default(List<string>), List<string> tld = default(List<string>))
         {
             this.DomainNames = domainNames;
@@ -46,16 +46,16 @@ namespace WhoisFreaks.Model
         }
 
         /// <summary>
-        /// Mode 1 — list of full domain names. Cannot be used with tld.
+        /// Mode 1: list of full domain names. Cannot be used with tld.
         /// </summary>
-        /// <value>Mode 1 — list of full domain names. Cannot be used with tld.</value>
+        /// <value>Mode 1: list of full domain names. Cannot be used with tld.</value>
         [DataMember(Name = "domainNames", EmitDefaultValue = false)]
         public List<string> DomainNames { get; set; }
 
         /// <summary>
-        /// Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames.
+        /// Mode 2: TLDs to check against the domain query param. Cannot be used with domainNames.
         /// </summary>
-        /// <value>Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames.</value>
+        /// <value>Mode 2: TLDs to check against the domain query param. Cannot be used with domainNames.</value>
         [DataMember(Name = "tld", EmitDefaultValue = false)]
         public List<string> Tld { get; set; }
 

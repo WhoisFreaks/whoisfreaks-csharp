@@ -17,6 +17,7 @@ Two bulk modes. Mode 1: POST domainNames array. Mode 2: POST tld array plus doma
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -38,11 +39,11 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DomainAvailabilityApi(httpClient, config, httpClientHandler);
             var bulkDomainAvailabilityRequest = new BulkDomainAvailabilityRequest(); // BulkDomainAvailabilityRequest | 
-            var domain = google.com;  // string? | Required for TLD-mode bulk check (base domain). (optional) 
+            var domain = "google.com";  // string? | Required for TLD-mode bulk check (base domain). (optional) 
             var format = "json";  // string? |  (optional)  (default to json)
 
             try
@@ -124,6 +125,7 @@ Check availability of a single domain and optionally get suggestions across mult
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -145,10 +147,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DomainAvailabilityApi(httpClient, config, httpClientHandler);
-            var domain = google.com;  // string | The domain name to check
+            var domain = "google.com";  // string | The domain name to check
             var sug = false;  // bool? | Whether to return TLD suggestions alongside the queried domain. (optional)  (default to false)
             var count = 5;  // int? | Number of TLD suggestions to return when sug=true. Maximum is 100. (optional)  (default to 5)
             var format = "json";  // string? |  (optional)  (default to json)

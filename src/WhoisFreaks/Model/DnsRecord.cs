@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -36,9 +36,13 @@ namespace WhoisFreaks.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DnsRecord" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="type">Numeric DNS record type: 1 A, 2 NS, 5 CNAME, 6 SOA, 12 PTR, 15 MX, 16 TXT, 28 AAAA, 99 SPF..</param>
+        /// <param name="dnsType">Record type name, e.g. A, MX, TXT.</param>
         /// <param name="name">name.</param>
         /// <param name="ttl">ttl.</param>
+        /// <param name="rawText">The record in zone-file format.</param>
+        /// <param name="rRsetType">rRsetType.</param>
+        /// <param name="singleName">Target host for NS, CNAME and PTR records.</param>
         /// <param name="address">address.</param>
         /// <param name="priority">priority.</param>
         /// <param name="exchange">exchange.</param>
@@ -46,16 +50,20 @@ namespace WhoisFreaks.Model
         /// <param name="strings">strings.</param>
         /// <param name="host">host.</param>
         /// <param name="admin">admin.</param>
-        /// <param name="serial">serial.</param>
+        /// <param name="serial">SOA serial; values above 2^31 are common, so it is 64-bit.</param>
         /// <param name="refresh">refresh.</param>
         /// <param name="retry">retry.</param>
         /// <param name="expire">expire.</param>
         /// <param name="minimum">minimum.</param>
-        public DnsRecord(string type = default(string), string name = default(string), int ttl = default(int), string address = default(string), int priority = default(int), string exchange = default(string), string target = default(string), List<string> strings = default(List<string>), string host = default(string), string admin = default(string), int serial = default(int), int refresh = default(int), int retry = default(int), int expire = default(int), int minimum = default(int))
+        public DnsRecord(int type = default(int), string dnsType = default(string), string name = default(string), int ttl = default(int), string rawText = default(string), int rRsetType = default(int), string singleName = default(string), string address = default(string), int priority = default(int), string exchange = default(string), string target = default(string), List<string> strings = default(List<string>), string host = default(string), string admin = default(string), long serial = default(long), int refresh = default(int), int retry = default(int), int expire = default(int), int minimum = default(int))
         {
             this.Type = type;
+            this.DnsType = dnsType;
             this.Name = name;
             this.Ttl = ttl;
+            this.RawText = rawText;
+            this.RRsetType = rRsetType;
+            this.SingleName = singleName;
             this.Address = address;
             this.Priority = priority;
             this.Exchange = exchange;
@@ -72,10 +80,18 @@ namespace WhoisFreaks.Model
         }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Numeric DNS record type: 1 A, 2 NS, 5 CNAME, 6 SOA, 12 PTR, 15 MX, 16 TXT, 28 AAAA, 99 SPF.
         /// </summary>
+        /// <value>Numeric DNS record type: 1 A, 2 NS, 5 CNAME, 6 SOA, 12 PTR, 15 MX, 16 TXT, 28 AAAA, 99 SPF.</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
+        public int Type { get; set; }
+
+        /// <summary>
+        /// Record type name, e.g. A, MX, TXT
+        /// </summary>
+        /// <value>Record type name, e.g. A, MX, TXT</value>
+        [DataMember(Name = "dnsType", EmitDefaultValue = false)]
+        public string DnsType { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -88,6 +104,26 @@ namespace WhoisFreaks.Model
         /// </summary>
         [DataMember(Name = "ttl", EmitDefaultValue = false)]
         public int Ttl { get; set; }
+
+        /// <summary>
+        /// The record in zone-file format
+        /// </summary>
+        /// <value>The record in zone-file format</value>
+        [DataMember(Name = "rawText", EmitDefaultValue = false)]
+        public string RawText { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RRsetType
+        /// </summary>
+        [DataMember(Name = "rRsetType", EmitDefaultValue = false)]
+        public int RRsetType { get; set; }
+
+        /// <summary>
+        /// Target host for NS, CNAME and PTR records
+        /// </summary>
+        /// <value>Target host for NS, CNAME and PTR records</value>
+        [DataMember(Name = "singleName", EmitDefaultValue = false)]
+        public string SingleName { get; set; }
 
         /// <summary>
         /// Gets or Sets Address
@@ -132,10 +168,11 @@ namespace WhoisFreaks.Model
         public string Admin { get; set; }
 
         /// <summary>
-        /// Gets or Sets Serial
+        /// SOA serial; values above 2^31 are common, so it is 64-bit
         /// </summary>
+        /// <value>SOA serial; values above 2^31 are common, so it is 64-bit</value>
         [DataMember(Name = "serial", EmitDefaultValue = false)]
-        public int Serial { get; set; }
+        public long Serial { get; set; }
 
         /// <summary>
         /// Gets or Sets Refresh
@@ -176,8 +213,12 @@ namespace WhoisFreaks.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class DnsRecord {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  DnsType: ").Append(DnsType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Ttl: ").Append(Ttl).Append("\n");
+            sb.Append("  RawText: ").Append(RawText).Append("\n");
+            sb.Append("  RRsetType: ").Append(RRsetType).Append("\n");
+            sb.Append("  SingleName: ").Append(SingleName).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Priority: ").Append(Priority).Append("\n");
             sb.Append("  Exchange: ").Append(Exchange).Append("\n");

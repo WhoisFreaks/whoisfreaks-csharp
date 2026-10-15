@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -34,7 +34,7 @@ namespace WhoisFreaks.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.21.0";
+        public const string Version = "0.23.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -118,7 +118,7 @@ namespace WhoisFreaks.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/0.21.0/csharp");
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/0.23.2/csharp");
             BasePath = "https://api.whoisfreaks.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -478,6 +478,78 @@ namespace WhoisFreaks.Client
                 },
                 {
                     "DatabasesSubdomainsApi.DbSubdomainsWeekly", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://files.whoisfreaks.com"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DatabasesThreatFeedApi.DownloadThreatFeedMalware", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://files.whoisfreaks.com"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DatabasesThreatFeedApi.DownloadThreatFeedMalwareSample", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://files.whoisfreaks.com"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DatabasesThreatFeedApi.DownloadThreatFeedPhishing", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://files.whoisfreaks.com"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DatabasesThreatFeedApi.DownloadThreatFeedPhishingSample", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://files.whoisfreaks.com"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DatabasesThreatFeedApi.DownloadThreatFeedSpam", new List<IReadOnlyDictionary<string, object>>
+                    {
+                        {
+                            new Dictionary<string, object>
+                            {
+                                {"url", "https://files.whoisfreaks.com"},
+                                {"description", "No description provided"}
+                            }
+                        },
+                    }
+                },
+                {
+                    "DatabasesThreatFeedApi.DownloadThreatFeedSpamSample", new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
@@ -931,7 +1003,7 @@ namespace WhoisFreaks.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0.0\n";
-            report += "    SDK Package Version: 0.21.0\n";
+            report += "    SDK Package Version: 0.23.2\n";
 
             return report;
         }

@@ -19,6 +19,7 @@ Up to 100 domains + 100 IPs in one request.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -40,10 +41,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DNSApi(httpClient, config, httpClientHandler);
-            var type = "\"all\"";  // string |  (default to "all")
+            var type = "A,MX,TXT";  // string |  (default to "all")
             var dnsBulkRequest = new DnsBulkRequest(); // DnsBulkRequest | 
             var format = "json";  // string? |  (optional)  (default to json)
 
@@ -124,6 +125,7 @@ All historical DNS records. 2 credits per page (100 records/page).
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -145,11 +147,11 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DNSApi(httpClient, config, httpClientHandler);
-            var domainName = "domainName_example";  // string | 
-            var type = "\"all\"";  // string |  (default to "all")
+            var domainName = "whoisfreaks.com";  // string | 
+            var type = "A,MX,TXT";  // string |  (default to "all")
             var page = 1;  // int? |  (optional)  (default to 1)
             var format = "json";  // string? |  (optional)  (default to json)
 
@@ -231,6 +233,7 @@ Real-time DNS record lookup. 1 credit per query.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -252,12 +255,12 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DNSApi(httpClient, config, httpClientHandler);
-            var type = "\"all\"";  // string | all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME (default to "all")
-            var domainName = "domainName_example";  // string? |  (optional) 
-            var ipAddress = "ipAddress_example";  // string? | Use for PTR lookups (optional) 
+            var type = "A,MX,TXT";  // string | all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME (default to "all")
+            var domainName = "whoisfreaks.com";  // string? |  (optional) 
+            var ipAddress = "8.8.8.8";  // string? | Use for PTR lookups (optional) 
             var format = "json";  // string? |  (optional)  (default to json)
 
             try
@@ -339,6 +342,7 @@ Search domains by IP or DNS value. 5 credits per page.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -360,10 +364,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DNSApi(httpClient, config, httpClientHandler);
-            var value = "value_example";  // string | IP, CIDR, or record value
+            var value = "8.8.8.8";  // string | IP, CIDR, or record value
             var type = "a";  // string | 
             var exact = true;  // bool? |  (optional)  (default to true)
             var page = 1;  // int? |  (optional)  (default to 1)

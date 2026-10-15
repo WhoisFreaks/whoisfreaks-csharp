@@ -16,6 +16,7 @@ Real-time domain threat assessment. Returns risk verdict, trust score, DGA analy
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -37,10 +38,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DomainReputationApi(httpClient, config, httpClientHandler);
-            var domainName = amazon.com;  // string | The domain name to assess
+            var domainName = "amazon.com";  // string | The domain name to assess
             var format = "json";  // string? |  (optional)  (default to json)
 
             try

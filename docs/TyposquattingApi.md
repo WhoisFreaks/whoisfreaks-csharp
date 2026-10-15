@@ -16,6 +16,7 @@ Find typo variants of a brand. 5 credits per page.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -37,11 +38,11 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new TyposquattingApi(httpClient, config, httpClientHandler);
-            var keyword = "keyword_example";  // string? |  (optional) 
-            var pattern = "pattern_example";  // string? |  (optional) 
+            var keyword = "whoisfreaks";  // string? |  (optional) 
+            var pattern = "whois*";  // string? |  (optional) 
             var pageToken = "pageToken_example";  // string? |  (optional) 
 
             try

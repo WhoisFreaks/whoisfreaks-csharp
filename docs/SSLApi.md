@@ -16,6 +16,7 @@ Real-time SSL cert with optional chain.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -37,10 +38,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new SSLApi(httpClient, config, httpClientHandler);
-            var domainName = "domainName_example";  // string | 
+            var domainName = "whoisfreaks.com";  // string | 
             var chain = false;  // bool? |  (optional)  (default to false)
             var sslRaw = false;  // bool? |  (optional)  (default to false)
             var format = "json";  // string? |  (optional)  (default to json)

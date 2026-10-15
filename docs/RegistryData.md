@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **DomainRegistrar** | [**RegistrarInformation**](RegistrarInformation.md) |  | [optional] 
 **NameServers** | **List&lt;string&gt;** |  | [optional] 
 **DomainStatus** | **List&lt;string&gt;** |  | [optional] 
-**WhoisRawDomain** | **string** |  | [optional] 
+**WhoisRawRegistery** | **string** | Raw registry WHOIS text (field name spelled as the API returns it) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@ info:
     name: WhoisFreaks Support
     url: https://whoisfreaks.com
   description: |
-    Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+    Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting,
     IP Intelligence, Domain Reputation, and bulk database downloads.
 
     ## Authentication
@@ -70,6 +70,8 @@ tags:
   name: Databases - IP WHOIS
 - description: IP security database snapshots
   name: Databases - IP Security
+- description: "Daily phishing, malware and spam threat feeds"
+  name: Databases - Threat Feed
 paths:
   /v2.0/whois/live:
     get:
@@ -166,7 +168,8 @@ paths:
       description: Real-time DNS record lookup. 1 credit per query.
       operationId: dnsLive
       parameters:
-      - explode: true
+      - example: whoisfreaks.com
+        explode: true
         in: query
         name: domainName
         required: false
@@ -174,6 +177,7 @@ paths:
           type: string
         style: form
       - description: Use for PTR lookups
+        example: 8.8.8.8
         explode: true
         in: query
         name: ipAddress
@@ -182,6 +186,7 @@ paths:
           type: string
         style: form
       - description: "all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME"
+        example: "A,MX,TXT"
         explode: true
         in: query
         name: type
@@ -228,14 +233,16 @@ paths:
       description: All historical DNS records. 2 credits per page (100 records/page).
       operationId: dnsHistorical
       parameters:
-      - explode: true
+      - example: whoisfreaks.com
+        explode: true
         in: query
         name: domainName
         required: true
         schema:
           type: string
         style: form
-      - explode: true
+      - example: "A,MX,TXT"
+        explode: true
         in: query
         name: type
         required: true
@@ -243,7 +250,8 @@ paths:
           default: all
           type: string
         style: form
-      - explode: true
+      - example: 1
+        explode: true
         in: query
         name: page
         required: false
@@ -284,6 +292,7 @@ paths:
       operationId: dnsReverse
       parameters:
       - description: "IP, CIDR, or record value"
+        example: 8.8.8.8
         explode: true
         in: query
         name: value
@@ -314,7 +323,8 @@ paths:
           default: true
           type: boolean
         style: form
-      - explode: true
+      - example: 1
+        explode: true
         in: query
         name: page
         required: false
@@ -354,7 +364,8 @@ paths:
       description: Up to 100 domains + 100 IPs in one request.
       operationId: dnsBulk
       parameters:
-      - explode: true
+      - example: "A,MX,TXT"
+        explode: true
         in: query
         name: type
         required: true
@@ -536,14 +547,16 @@ paths:
       description: Find typo variants of a brand. 5 credits per page.
       operationId: typosquatting
       parameters:
-      - explode: true
+      - example: whoisfreaks
+        explode: true
         in: query
         name: keyword
         required: false
         schema:
           type: string
         style: form
-      - explode: true
+      - example: whois*
+        explode: true
         in: query
         name: pattern
         required: false
@@ -584,7 +597,8 @@ paths:
       description: Real-time SSL cert with optional chain.
       operationId: sslLookup
       parameters:
-      - explode: true
+      - example: whoisfreaks.com
+        explode: true
         in: query
         name: domainName
         required: true
@@ -639,7 +653,8 @@ paths:
       description: "Get location, ASN, currency for an IP. 1 credit."
       operationId: geolocation
       parameters:
-      - explode: true
+      - example: 8.8.8.8
+        explode: true
         in: query
         name: ip
         required: true
@@ -695,14 +710,16 @@ paths:
       description: All subdomains including nested. 2 credits per query.
       operationId: subdomains
       parameters:
-      - explode: true
+      - example: whoisfreaks.com
+        explode: true
         in: query
         name: domain
         required: true
         schema:
           type: string
         style: form
-      - explode: true
+      - example: 2026-01-01
+        explode: true
         in: query
         name: after
         required: false
@@ -710,7 +727,8 @@ paths:
           format: date
           type: string
         style: form
-      - explode: true
+      - example: 2026-10-01
+        explode: true
         in: query
         name: before
         required: false
@@ -728,7 +746,8 @@ paths:
           - inactive
           type: string
         style: form
-      - explode: true
+      - example: 1
+        explode: true
         in: query
         name: page
         required: false
@@ -765,10 +784,11 @@ paths:
       - Subdomains
   /v1.0/security:
     get:
-      description: "Threat intel for IP — VPN, proxy, Tor, bots. 1 credit."
+      description: "Threat intel for IP: VPN, proxy, Tor, bots. 1 credit."
       operationId: ipReputation
       parameters:
-      - explode: true
+      - example: 8.8.8.8
+        explode: true
         in: query
         name: ip
         required: true
@@ -925,7 +945,8 @@ paths:
       description: WHOIS for an IP address. 1 credit.
       operationId: ipWhois
       parameters:
-      - explode: true
+      - example: 8.8.8.8
+        explode: true
         in: query
         name: ip
         required: true
@@ -1007,7 +1028,8 @@ paths:
         by this operation.
       operationId: dbNewlyGtld
       parameters:
-      - explode: true
+      - example: true
+        explode: true
         in: query
         name: whois
         required: true
@@ -1015,6 +1037,7 @@ paths:
           type: boolean
         style: form
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1023,7 +1046,8 @@ paths:
           format: date
           type: string
         style: form
-      - explode: true
+      - example: "com,net"
+        explode: true
         in: query
         name: tlds
         required: false
@@ -1055,7 +1079,8 @@ paths:
         by this operation.
       operationId: dbNewlyCctld
       parameters:
-      - explode: true
+      - example: true
+        explode: true
         in: query
         name: whois
         required: true
@@ -1063,6 +1088,7 @@ paths:
           type: boolean
         style: form
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1071,7 +1097,8 @@ paths:
           format: date
           type: string
         style: form
-      - explode: true
+      - example: "com,net"
+        explode: true
         in: query
         name: tlds
         required: false
@@ -1104,6 +1131,7 @@ paths:
       operationId: dbNewlyGtldCleaned
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1138,6 +1166,7 @@ paths:
       operationId: dbNewlyCctldCleaned
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1172,6 +1201,7 @@ paths:
       operationId: dbNewlyGtldJson
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1180,7 +1210,8 @@ paths:
           format: date
           type: string
         style: form
-      - explode: true
+      - example: "com,net"
+        explode: true
         in: query
         name: tlds
         required: false
@@ -1214,6 +1245,7 @@ paths:
       operationId: dbNewlyCctldJson
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1222,7 +1254,8 @@ paths:
           format: date
           type: string
         style: form
-      - explode: true
+      - example: "com,net"
+        explode: true
         in: query
         name: tlds
         required: false
@@ -1256,6 +1289,7 @@ paths:
       operationId: dbNewlyDns
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1288,7 +1322,8 @@ paths:
       description: Expiring Domains. Returns the file/snapshot described by this operation.
       operationId: dbExpired
       parameters:
-      - explode: true
+      - example: true
+        explode: true
         in: query
         name: whois
         required: true
@@ -1296,6 +1331,7 @@ paths:
           type: boolean
         style: form
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1330,6 +1366,7 @@ paths:
       operationId: dbExpiredCleaned
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1362,7 +1399,8 @@ paths:
       description: Dropped Domains. Returns the file/snapshot described by this operation.
       operationId: dbDropped
       parameters:
-      - explode: true
+      - example: true
+        explode: true
         in: query
         name: whois
         required: true
@@ -1370,6 +1408,7 @@ paths:
           type: boolean
         style: form
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1404,6 +1443,7 @@ paths:
       operationId: dbDroppedJson
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1412,7 +1452,8 @@ paths:
           format: date
           type: string
         style: form
-      - explode: true
+      - example: "com,net"
+        explode: true
         in: query
         name: tlds
         required: false
@@ -1445,7 +1486,8 @@ paths:
         this operation.
       operationId: dbDroppedBacklinks
       parameters:
-      - explode: true
+      - example: true
+        explode: true
         in: query
         name: whois
         required: false
@@ -1453,6 +1495,7 @@ paths:
           type: boolean
         style: form
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1487,6 +1530,7 @@ paths:
       operationId: dbWhoisDaily
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1521,6 +1565,7 @@ paths:
       operationId: dbWhoisWeekly
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1555,6 +1600,7 @@ paths:
       operationId: dbWhoisMonthly
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1589,6 +1635,7 @@ paths:
       operationId: dbDnsDaily
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1623,6 +1670,7 @@ paths:
       operationId: dbDnsWeekly
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1657,6 +1705,7 @@ paths:
       operationId: dbDnsMonthly
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1690,6 +1739,7 @@ paths:
       operationId: dbSubdomainsDaily
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1724,6 +1774,7 @@ paths:
       operationId: dbSubdomainsWeekly
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1758,6 +1809,7 @@ paths:
       operationId: dbSubdomainsMonthly
       parameters:
       - description: yyyy-MM-dd; omit for latest
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -1815,7 +1867,8 @@ paths:
         this operation.
       operationId: dbIpCountry
       parameters:
-      - explode: true
+      - example: 2026-10-01
+        explode: true
         in: query
         name: date
         required: true
@@ -1872,7 +1925,8 @@ paths:
         operation.
       operationId: dbIpCity
       parameters:
-      - explode: true
+      - example: 2026-10-01
+        explode: true
         in: query
         name: date
         required: true
@@ -1905,7 +1959,8 @@ paths:
         operation.
       operationId: dbAsnWhois
       parameters:
-      - explode: true
+      - example: 2026-10-01
+        explode: true
         in: query
         name: date
         required: true
@@ -1962,7 +2017,8 @@ paths:
         operation.
       operationId: dbIpWhois
       parameters:
-      - explode: true
+      - example: 2026-10-01
+        explode: true
         in: query
         name: date
         required: true
@@ -2019,7 +2075,8 @@ paths:
         operation.
       operationId: dbIpSecurity
       parameters:
-      - explode: true
+      - example: 2026-10-01
+        explode: true
         in: query
         name: date
         required: true
@@ -2072,23 +2129,18 @@ paths:
     - url: https://files.whoisfreaks.com
   /v2.0/whois/history:
     get:
+      description: "Every WHOIS record captured for the domain since 1986, in one\
+        \ response (no pagination). Cost 2 credits."
       operationId: whoisHistory
       parameters:
       - description: Domain to fetch historical WHOIS records for
+        example: whoisfreaks.com
         explode: true
         in: query
         name: domainName
         required: true
         schema:
           type: string
-        style: form
-      - description: Page number
-        explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
         style: form
       - explode: true
         in: query
@@ -2115,6 +2167,7 @@ paths:
       operationId: whoisReverse
       parameters:
       - description: Keyword to search across WHOIS records
+        example: whoisfreaks
         explode: true
         in: query
         name: keyword
@@ -2123,6 +2176,7 @@ paths:
           type: string
         style: form
       - description: Page number
+        example: 1
         explode: true
         in: query
         name: page
@@ -2154,7 +2208,8 @@ paths:
     get:
       operationId: downloadThreatFeedPhishing
       parameters:
-      - description: Feed date (yyyy-MM-dd); defaults to latest available
+      - description: Feed date (yyyy-MM-dd); omit for the full dump of the feed
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -2170,9 +2225,17 @@ paths:
                 format: binary
                 type: string
           description: "Phishing threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)"
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Error response (4XX)
       summary: Download the daily phishing threat feed (CSV)
       tags:
       - Databases - Threat Feed
+    servers:
+    - url: https://files.whoisfreaks.com
   /v3.4/download/threat-feed/phishing/sample:
     get:
       operationId: downloadThreatFeedPhishingSample
@@ -2185,14 +2248,23 @@ paths:
                 format: binary
                 type: string
           description: Sample phishing threat feed as CSV
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Error response (4XX)
       summary: Download a sample of the phishing threat feed (CSV)
       tags:
       - Databases - Threat Feed
+    servers:
+    - url: https://files.whoisfreaks.com
   /v3.4/download/threat-feed/malware:
     get:
       operationId: downloadThreatFeedMalware
       parameters:
-      - description: Feed date (yyyy-MM-dd); defaults to latest available
+      - description: Feed date (yyyy-MM-dd); omit for the full dump of the feed
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -2208,9 +2280,17 @@ paths:
                 format: binary
                 type: string
           description: "Malware threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)"
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Error response (4XX)
       summary: Download the daily malware threat feed (CSV)
       tags:
       - Databases - Threat Feed
+    servers:
+    - url: https://files.whoisfreaks.com
   /v3.4/download/threat-feed/malware/sample:
     get:
       operationId: downloadThreatFeedMalwareSample
@@ -2223,14 +2303,23 @@ paths:
                 format: binary
                 type: string
           description: Sample malware threat feed as CSV
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Error response (4XX)
       summary: Download a sample of the malware threat feed (CSV)
       tags:
       - Databases - Threat Feed
+    servers:
+    - url: https://files.whoisfreaks.com
   /v3.4/download/threat-feed/spam:
     get:
       operationId: downloadThreatFeedSpam
       parameters:
-      - description: Feed date (yyyy-MM-dd); defaults to latest available
+      - description: Feed date (yyyy-MM-dd); omit for the full dump of the feed
+        example: 2026-10-01
         explode: true
         in: query
         name: date
@@ -2246,9 +2335,17 @@ paths:
                 format: binary
                 type: string
           description: "Spam threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)"
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Error response (4XX)
       summary: Download the daily spam threat feed (CSV)
       tags:
       - Databases - Threat Feed
+    servers:
+    - url: https://files.whoisfreaks.com
   /v3.4/download/threat-feed/spam/sample:
     get:
       operationId: downloadThreatFeedSpamSample
@@ -2261,9 +2358,17 @@ paths:
                 format: binary
                 type: string
           description: Sample spam threat feed as CSV
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Error response (4XX)
       summary: Download a sample of the spam threat feed (CSV)
       tags:
       - Databases - Threat Feed
+    servers:
+    - url: https://files.whoisfreaks.com
   /v3.4/status:
     get:
       description: No API key required. Returns freshness of all downloadable files.
@@ -2303,6 +2408,7 @@ components:
       style: form
     DateParam:
       description: yyyy-MM-dd; omit for latest
+      example: 2026-10-01
       explode: true
       in: query
       name: date
@@ -2484,12 +2590,12 @@ components:
         - domain_status
         - domain_status
         whois_server: whois_server
-        whois_raw_domain: whois_raw_domain
         domain_registered: domain_registered
         expiry_date: expiry_date
         name_servers:
         - name_servers
         - name_servers
+        whois_raw_registery: whois_raw_registery
         create_date: create_date
         domain_registrar:
           whois_server: whois_server
@@ -2535,7 +2641,9 @@ components:
           items:
             type: string
           type: array
-        whois_raw_domain:
+        whois_raw_registery:
+          description: Raw registry WHOIS text (field name spelled as the API returns
+            it)
           type: string
       type: object
     WhoisResponse:
@@ -2614,12 +2722,12 @@ components:
           - domain_status
           - domain_status
           whois_server: whois_server
-          whois_raw_domain: whois_raw_domain
           domain_registered: domain_registered
           expiry_date: expiry_date
           name_servers:
           - name_servers
           - name_servers
+          whois_raw_registery: whois_raw_registery
           create_date: create_date
           domain_registrar:
             whois_server: whois_server
@@ -2823,12 +2931,12 @@ components:
           - domain_status
           - domain_status
           whois_server: whois_server
-          whois_raw_domain: whois_raw_domain
           domain_registered: domain_registered
           expiry_date: expiry_date
           name_servers:
           - name_servers
           - name_servers
+          whois_raw_registery: whois_raw_registery
           create_date: create_date
           domain_registrar:
             whois_server: whois_server
@@ -3037,12 +3145,12 @@ components:
             - domain_status
             - domain_status
             whois_server: whois_server
-            whois_raw_domain: whois_raw_domain
             domain_registered: domain_registered
             expiry_date: expiry_date
             name_servers:
             - name_servers
             - name_servers
+            whois_raw_registery: whois_raw_registery
             create_date: create_date
             domain_registrar:
               whois_server: whois_server
@@ -3193,12 +3301,12 @@ components:
             - domain_status
             - domain_status
             whois_server: whois_server
-            whois_raw_domain: whois_raw_domain
             domain_registered: domain_registered
             expiry_date: expiry_date
             name_servers:
             - name_servers
             - name_servers
+            whois_raw_registery: whois_raw_registery
             create_date: create_date
             domain_registrar:
               whois_server: whois_server
@@ -3291,11 +3399,12 @@ components:
       type: object
     ReverseWhoisResponse:
       additionalProperties: true
-      description: Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page)
-        as returned by the API.
+      description: "Reverse WHOIS response. Pagination keys (total_Result, total_Pages,\
+        \ current_Page) are spelled as the API returns them."
       example:
-        Total_Pages: 6
-        Total_Result: 0
+        total_Pages: 6
+        total_Result: 0
+        current_Page: 1
         whois_domains_historical:
         - whois_server: whois_server
           whois_raw_domain: whois_raw_domain
@@ -3370,12 +3479,12 @@ components:
             - domain_status
             - domain_status
             whois_server: whois_server
-            whois_raw_domain: whois_raw_domain
             domain_registered: domain_registered
             expiry_date: expiry_date
             name_servers:
             - name_servers
             - name_servers
+            whois_raw_registery: whois_raw_registery
             create_date: create_date
             domain_registrar:
               whois_server: whois_server
@@ -3526,12 +3635,12 @@ components:
             - domain_status
             - domain_status
             whois_server: whois_server
-            whois_raw_domain: whois_raw_domain
             domain_registered: domain_registered
             expiry_date: expiry_date
             name_servers:
             - name_servers
             - name_servers
+            whois_raw_registery: whois_raw_registery
             create_date: create_date
             domain_registrar:
               whois_server: whois_server
@@ -3609,13 +3718,12 @@ components:
           create_date: create_date
           query_time: query_time
           status: true
-        Current_Page: 1
       properties:
-        Total_Result:
+        total_Result:
           type: integer
-        Total_Pages:
+        total_Pages:
           type: integer
-        Current_Page:
+        current_Page:
           type: integer
         whois_domains_historical:
           items:
@@ -3624,11 +3732,164 @@ components:
       type: object
     BulkWhoisItem:
       additionalProperties: true
-      description: One bulk WHOIS result; success items also carry all WhoisResponse
-        fields.
+      description: One bulk WHOIS result. Successful items carry the same fields as
+        a live WHOIS lookup.
       example:
-        domain_name: domain_name
+        whois_server: whois_server
+        whois_raw_domain: whois_raw_domain
+        billing_contact:
+          city: city
+          handle: handle
+          zip_code: zip_code
+          mailing_address: mailing_address
+          country_code: country_code
+          email_address: email_address
+          phone: phone
+          street: street
+          name: name
+          country_name: country_name
+          id_type: id_type
+          company: company
+          id: id
+          state: state
+          fax: fax
+        expiry_date: expiry_date
+        eligibility_info:
+          name: name
+          id: id
+          type: type
+        registrant_contact:
+          city: city
+          handle: handle
+          zip_code: zip_code
+          mailing_address: mailing_address
+          country_code: country_code
+          email_address: email_address
+          phone: phone
+          street: street
+          name: name
+          country_name: country_name
+          id_type: id_type
+          company: company
+          id: id
+          state: state
+          fax: fax
+        name_servers:
+        - name_servers
+        - name_servers
         error: error
+        domain_registrar:
+          whois_server: whois_server
+          registrar_name: registrar_name
+          normalized_name: normalized_name
+          handle: handle
+          rdap_server: rdap_server
+          is_sponsor: true
+          registry_id: registry_id
+          email_address: email_address
+          website_url: website_url
+          id_type: id_type
+          phone_number: phone_number
+          authoritative_registry_name: authoritative_registry_name
+          id: id
+          organization_number: organization_number
+          iana_id: iana_id
+          status: status
+        reseller_contact:
+          email_address: email_address
+          phone: phone
+          name: name
+        domain_handle: domain_handle
+        secure_dns: true
+        update_date: update_date
+        registry_data:
+          domain_name: domain_name
+          domain_status:
+          - domain_status
+          - domain_status
+          whois_server: whois_server
+          domain_registered: domain_registered
+          expiry_date: expiry_date
+          name_servers:
+          - name_servers
+          - name_servers
+          whois_raw_registery: whois_raw_registery
+          create_date: create_date
+          domain_registrar:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          query_time: query_time
+          update_date: update_date
+        domain_name: domain_name
+        technical_contact:
+          city: city
+          handle: handle
+          zip_code: zip_code
+          mailing_address: mailing_address
+          country_code: country_code
+          email_address: email_address
+          phone: phone
+          street: street
+          name: name
+          country_name: country_name
+          id_type: id_type
+          company: company
+          id: id
+          state: state
+          fax: fax
+        domain_status:
+        - domain_status
+        - domain_status
+        administrative_contact:
+          city: city
+          handle: handle
+          zip_code: zip_code
+          mailing_address: mailing_address
+          country_code: country_code
+          email_address: email_address
+          phone: phone
+          street: street
+          name: name
+          country_name: country_name
+          id_type: id_type
+          company: company
+          id: id
+          state: state
+          fax: fax
+        domain_registered: domain_registered
+        abuse_contact:
+          whois_server: whois_server
+          registrar_name: registrar_name
+          normalized_name: normalized_name
+          handle: handle
+          rdap_server: rdap_server
+          is_sponsor: true
+          registry_id: registry_id
+          email_address: email_address
+          website_url: website_url
+          id_type: id_type
+          phone_number: phone_number
+          authoritative_registry_name: authoritative_registry_name
+          id: id
+          organization_number: organization_number
+          iana_id: iana_id
+          status: status
+        create_date: create_date
+        query_time: query_time
         status: true
       properties:
         status:
@@ -3637,16 +3898,366 @@ components:
           type: string
         error:
           type: string
+        query_time:
+          type: string
+        whois_server:
+          type: string
+        domain_registered:
+          type: string
+        secure_dns:
+          type: boolean
+        domain_handle:
+          type: string
+        create_date:
+          type: string
+        update_date:
+          type: string
+        expiry_date:
+          type: string
+        domain_registrar:
+          $ref: '#/components/schemas/RegistrarInformation'
+        reseller_contact:
+          $ref: '#/components/schemas/ResellerContact'
+        registrant_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        administrative_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        technical_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        billing_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        eligibility_info:
+          $ref: '#/components/schemas/EligibilityInfo'
+        abuse_contact:
+          $ref: '#/components/schemas/RegistrarInformation'
+        name_servers:
+          items:
+            type: string
+          type: array
+        domain_status:
+          items:
+            type: string
+          type: array
+        whois_raw_domain:
+          type: string
+        registry_data:
+          $ref: '#/components/schemas/RegistryData'
       type: object
     BulkWhoisResponse:
       additionalProperties: true
       example:
         bulk_whois_response:
-        - domain_name: domain_name
+        - whois_server: whois_server
+          whois_raw_domain: whois_raw_domain
+          billing_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          expiry_date: expiry_date
+          eligibility_info:
+            name: name
+            id: id
+            type: type
+          registrant_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          name_servers:
+          - name_servers
+          - name_servers
           error: error
+          domain_registrar:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          reseller_contact:
+            email_address: email_address
+            phone: phone
+            name: name
+          domain_handle: domain_handle
+          secure_dns: true
+          update_date: update_date
+          registry_data:
+            domain_name: domain_name
+            domain_status:
+            - domain_status
+            - domain_status
+            whois_server: whois_server
+            domain_registered: domain_registered
+            expiry_date: expiry_date
+            name_servers:
+            - name_servers
+            - name_servers
+            whois_raw_registery: whois_raw_registery
+            create_date: create_date
+            domain_registrar:
+              whois_server: whois_server
+              registrar_name: registrar_name
+              normalized_name: normalized_name
+              handle: handle
+              rdap_server: rdap_server
+              is_sponsor: true
+              registry_id: registry_id
+              email_address: email_address
+              website_url: website_url
+              id_type: id_type
+              phone_number: phone_number
+              authoritative_registry_name: authoritative_registry_name
+              id: id
+              organization_number: organization_number
+              iana_id: iana_id
+              status: status
+            query_time: query_time
+            update_date: update_date
+          domain_name: domain_name
+          technical_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          domain_status:
+          - domain_status
+          - domain_status
+          administrative_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          domain_registered: domain_registered
+          abuse_contact:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          create_date: create_date
+          query_time: query_time
           status: true
-        - domain_name: domain_name
+        - whois_server: whois_server
+          whois_raw_domain: whois_raw_domain
+          billing_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          expiry_date: expiry_date
+          eligibility_info:
+            name: name
+            id: id
+            type: type
+          registrant_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          name_servers:
+          - name_servers
+          - name_servers
           error: error
+          domain_registrar:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          reseller_contact:
+            email_address: email_address
+            phone: phone
+            name: name
+          domain_handle: domain_handle
+          secure_dns: true
+          update_date: update_date
+          registry_data:
+            domain_name: domain_name
+            domain_status:
+            - domain_status
+            - domain_status
+            whois_server: whois_server
+            domain_registered: domain_registered
+            expiry_date: expiry_date
+            name_servers:
+            - name_servers
+            - name_servers
+            whois_raw_registery: whois_raw_registery
+            create_date: create_date
+            domain_registrar:
+              whois_server: whois_server
+              registrar_name: registrar_name
+              normalized_name: normalized_name
+              handle: handle
+              rdap_server: rdap_server
+              is_sponsor: true
+              registry_id: registry_id
+              email_address: email_address
+              website_url: website_url
+              id_type: id_type
+              phone_number: phone_number
+              authoritative_registry_name: authoritative_registry_name
+              id: id
+              organization_number: organization_number
+              iana_id: iana_id
+              status: status
+            query_time: query_time
+            update_date: update_date
+          domain_name: domain_name
+          technical_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          domain_status:
+          - domain_status
+          - domain_status
+          administrative_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          domain_registered: domain_registered
+          abuse_contact:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          create_date: create_date
+          query_time: query_time
           status: true
       properties:
         bulk_whois_response:
@@ -3658,30 +4269,47 @@ components:
       additionalProperties: true
       description: Union of all DNS record variants (A/AAAA/MX/NS/CNAME/PTR/TXT/SPF/SOA).
       example:
+        singleName: singleName
+        dnsType: dnsType
         address: address
         admin: admin
-        refresh: 5
-        type: type
-        priority: 6
-        ttl: 0
+        refresh: 2
+        type: 0
+        priority: 5
+        ttl: 6
         target: target
+        rawText: rawText
         strings:
         - strings
         - strings
-        serial: 1
-        expire: 2
+        serial: 5
+        rRsetType: 1
+        expire: 9
         name: name
         host: host
         exchange: exchange
-        minimum: 7
-        retry: 5
+        minimum: 3
+        retry: 7
       properties:
         type:
+          description: "Numeric DNS record type: 1 A, 2 NS, 5 CNAME, 6 SOA, 12 PTR,\
+            \ 15 MX, 16 TXT, 28 AAAA, 99 SPF."
+          type: integer
+        dnsType:
+          description: "Record type name, e.g. A, MX, TXT"
           type: string
         name:
           type: string
         ttl:
           type: integer
+        rawText:
+          description: The record in zone-file format
+          type: string
+        rRsetType:
+          type: integer
+        singleName:
+          description: "Target host for NS, CNAME and PTR records"
+          type: string
         address:
           type: string
         priority:
@@ -3699,6 +4327,8 @@ components:
         admin:
           type: string
         serial:
+          description: "SOA serial; values above 2^31 are common, so it is 64-bit"
+          format: int64
           type: integer
         refresh:
           type: integer
@@ -3716,40 +4346,48 @@ components:
         domainRegistered: true
         domainName: domainName
         dnsRecords:
-        - address: address
+        - singleName: singleName
+          dnsType: dnsType
+          address: address
           admin: admin
-          refresh: 5
-          type: type
-          priority: 6
-          ttl: 0
+          refresh: 2
+          type: 0
+          priority: 5
+          ttl: 6
           target: target
+          rawText: rawText
           strings:
           - strings
           - strings
-          serial: 1
-          expire: 2
+          serial: 5
+          rRsetType: 1
+          expire: 9
           name: name
           host: host
           exchange: exchange
-          minimum: 7
-          retry: 5
-        - address: address
+          minimum: 3
+          retry: 7
+        - singleName: singleName
+          dnsType: dnsType
+          address: address
           admin: admin
-          refresh: 5
-          type: type
-          priority: 6
-          ttl: 0
+          refresh: 2
+          type: 0
+          priority: 5
+          ttl: 6
           target: target
+          rawText: rawText
           strings:
           - strings
           - strings
-          serial: 1
-          expire: 2
+          serial: 5
+          rRsetType: 1
+          expire: 9
           name: name
           host: host
           exchange: exchange
-          minimum: 7
-          retry: 5
+          minimum: 3
+          retry: 7
         ipAddress: ipAddress
         queryTime: queryTime
         dnsTypes: "{}"
@@ -3774,102 +4412,117 @@ components:
       type: object
     HistoricalDnsResponse:
       additionalProperties: true
-      description: "Note: 'currenPage' spelling matches the API."
       example:
         totalRecords: 1
+        historicalDnsRecords:
+        - domainRegistered: true
+          domainName: domainName
+          dnsRecords:
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
+            admin: admin
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
+            target: target
+            rawText: rawText
+            strings:
+            - strings
+            - strings
+            serial: 5
+            rRsetType: 1
+            expire: 9
+            name: name
+            host: host
+            exchange: exchange
+            minimum: 3
+            retry: 7
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
+            admin: admin
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
+            target: target
+            rawText: rawText
+            strings:
+            - strings
+            - strings
+            serial: 5
+            rRsetType: 1
+            expire: 9
+            name: name
+            host: host
+            exchange: exchange
+            minimum: 3
+            retry: 7
+          ipAddress: ipAddress
+          queryTime: queryTime
+          dnsTypes: "{}"
+          status: true
+        - domainRegistered: true
+          domainName: domainName
+          dnsRecords:
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
+            admin: admin
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
+            target: target
+            rawText: rawText
+            strings:
+            - strings
+            - strings
+            serial: 5
+            rRsetType: 1
+            expire: 9
+            name: name
+            host: host
+            exchange: exchange
+            minimum: 3
+            retry: 7
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
+            admin: admin
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
+            target: target
+            rawText: rawText
+            strings:
+            - strings
+            - strings
+            serial: 5
+            rRsetType: 1
+            expire: 9
+            name: name
+            host: host
+            exchange: exchange
+            minimum: 3
+            retry: 7
+          ipAddress: ipAddress
+          queryTime: queryTime
+          dnsTypes: "{}"
+          status: true
         totalPages: 0
-        historicalDns:
-        - domainRegistered: true
-          domainName: domainName
-          dnsRecords:
-          - address: address
-            admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
-            target: target
-            strings:
-            - strings
-            - strings
-            serial: 1
-            expire: 2
-            name: name
-            host: host
-            exchange: exchange
-            minimum: 7
-            retry: 5
-          - address: address
-            admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
-            target: target
-            strings:
-            - strings
-            - strings
-            serial: 1
-            expire: 2
-            name: name
-            host: host
-            exchange: exchange
-            minimum: 7
-            retry: 5
-          ipAddress: ipAddress
-          queryTime: queryTime
-          dnsTypes: "{}"
-          status: true
-        - domainRegistered: true
-          domainName: domainName
-          dnsRecords:
-          - address: address
-            admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
-            target: target
-            strings:
-            - strings
-            - strings
-            serial: 1
-            expire: 2
-            name: name
-            host: host
-            exchange: exchange
-            minimum: 7
-            retry: 5
-          - address: address
-            admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
-            target: target
-            strings:
-            - strings
-            - strings
-            serial: 1
-            expire: 2
-            name: name
-            host: host
-            exchange: exchange
-            minimum: 7
-            retry: 5
-          ipAddress: ipAddress
-          queryTime: queryTime
-          dnsTypes: "{}"
-          status: true
-        currenPage: 6
+        currentPage: 6
       properties:
         totalPages:
           type: integer
-        currenPage:
+        currentPage:
           type: integer
         totalRecords:
           type: integer
-        historicalDns:
+        historicalDnsRecords:
           items:
             $ref: '#/components/schemas/DnsResponse'
           type: array
@@ -3884,40 +4537,48 @@ components:
         - domainRegistered: true
           domainName: domainName
           dnsRecords:
-          - address: address
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
-          - address: address
+            minimum: 3
+            retry: 7
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
+            minimum: 3
+            retry: 7
           ipAddress: ipAddress
           queryTime: queryTime
           dnsTypes: "{}"
@@ -3925,40 +4586,48 @@ components:
         - domainRegistered: true
           domainName: domainName
           dnsRecords:
-          - address: address
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
-          - address: address
+            minimum: 3
+            retry: 7
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
+            minimum: 3
+            retry: 7
           ipAddress: ipAddress
           queryTime: queryTime
           dnsTypes: "{}"
@@ -3982,40 +4651,48 @@ components:
         - domainRegistered: true
           domainName: domainName
           dnsRecords:
-          - address: address
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
-          - address: address
+            minimum: 3
+            retry: 7
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
+            minimum: 3
+            retry: 7
           ipAddress: ipAddress
           queryTime: queryTime
           dnsTypes: "{}"
@@ -4023,40 +4700,48 @@ components:
         - domainRegistered: true
           domainName: domainName
           dnsRecords:
-          - address: address
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
-          - address: address
+            minimum: 3
+            retry: 7
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
+            minimum: 3
+            retry: 7
           ipAddress: ipAddress
           queryTime: queryTime
           dnsTypes: "{}"
@@ -4076,40 +4761,48 @@ components:
           domainRegistered: true
           domainName: domainName
           dnsRecords:
-          - address: address
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
-          - address: address
+            minimum: 3
+            retry: 7
+          - singleName: singleName
+            dnsType: dnsType
+            address: address
             admin: admin
-            refresh: 5
-            type: type
-            priority: 6
-            ttl: 0
+            refresh: 2
+            type: 0
+            priority: 5
+            ttl: 6
             target: target
+            rawText: rawText
             strings:
             - strings
             - strings
-            serial: 1
-            expire: 2
+            serial: 5
+            rRsetType: 1
+            expire: 9
             name: name
             host: host
             exchange: exchange
-            minimum: 7
-            retry: 5
+            minimum: 3
+            retry: 7
           ipAddress: ipAddress
           queryTime: queryTime
           dnsTypes: "{}"
@@ -4138,40 +4831,48 @@ components:
             domainRegistered: true
             domainName: domainName
             dnsRecords:
-            - address: address
+            - singleName: singleName
+              dnsType: dnsType
+              address: address
               admin: admin
-              refresh: 5
-              type: type
-              priority: 6
-              ttl: 0
+              refresh: 2
+              type: 0
+              priority: 5
+              ttl: 6
               target: target
+              rawText: rawText
               strings:
               - strings
               - strings
-              serial: 1
-              expire: 2
+              serial: 5
+              rRsetType: 1
+              expire: 9
               name: name
               host: host
               exchange: exchange
-              minimum: 7
-              retry: 5
-            - address: address
+              minimum: 3
+              retry: 7
+            - singleName: singleName
+              dnsType: dnsType
+              address: address
               admin: admin
-              refresh: 5
-              type: type
-              priority: 6
-              ttl: 0
+              refresh: 2
+              type: 0
+              priority: 5
+              ttl: 6
               target: target
+              rawText: rawText
               strings:
               - strings
               - strings
-              serial: 1
-              expire: 2
+              serial: 5
+              rRsetType: 1
+              expire: 9
               name: name
               host: host
               exchange: exchange
-              minimum: 7
-              retry: 5
+              minimum: 3
+              retry: 7
             ipAddress: ipAddress
             queryTime: queryTime
             dnsTypes: "{}"
@@ -4184,40 +4885,48 @@ components:
             domainRegistered: true
             domainName: domainName
             dnsRecords:
-            - address: address
+            - singleName: singleName
+              dnsType: dnsType
+              address: address
               admin: admin
-              refresh: 5
-              type: type
-              priority: 6
-              ttl: 0
+              refresh: 2
+              type: 0
+              priority: 5
+              ttl: 6
               target: target
+              rawText: rawText
               strings:
               - strings
               - strings
-              serial: 1
-              expire: 2
+              serial: 5
+              rRsetType: 1
+              expire: 9
               name: name
               host: host
               exchange: exchange
-              minimum: 7
-              retry: 5
-            - address: address
+              minimum: 3
+              retry: 7
+            - singleName: singleName
+              dnsType: dnsType
+              address: address
               admin: admin
-              refresh: 5
-              type: type
-              priority: 6
-              ttl: 0
+              refresh: 2
+              type: 0
+              priority: 5
+              ttl: 6
               target: target
+              rawText: rawText
               strings:
               - strings
               - strings
-              serial: 1
-              expire: 2
+              serial: 5
+              rRsetType: 1
+              expire: 9
               name: name
               host: host
               exchange: exchange
-              minimum: 7
-              retry: 5
+              minimum: 3
+              retry: 7
             ipAddress: ipAddress
             queryTime: queryTime
             dnsTypes: "{}"
@@ -6311,8 +7020,8 @@ components:
       type: object
     AsnWhoisResponse:
       additionalProperties: true
-      description: ASN WHOIS v2 (/v2.0/asn-whois) — pass-through of ipgeolocation
-        ASN data.
+      description: "ASN WHOIS v2 (/v2.0/asn-whois): pass-through of ipgeolocation\
+        \ ASN data."
       example:
         asn:
           country: country
@@ -7688,14 +8397,14 @@ components:
         - tld
       properties:
         domainNames:
-          description: Mode 1 — list of full domain names. Cannot be used with tld.
+          description: "Mode 1: list of full domain names. Cannot be used with tld."
           items:
             type: string
           maxItems: 100
           type: array
         tld:
-          description: Mode 2 — TLDs to check against the domain query param. Cannot
-            be used with domainNames.
+          description: "Mode 2: TLDs to check against the domain query param. Cannot\
+            \ be used with domainNames."
           items:
             type: string
           maxItems: 100

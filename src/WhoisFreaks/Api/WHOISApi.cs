@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -54,25 +54,26 @@ namespace WhoisFreaks.Api
         /// <summary>
         /// Historical WHOIS records for a domain
         /// </summary>
+        /// <remarks>
+        /// Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
+        /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain to fetch historical WHOIS records for</param>
-        /// <param name="page">Page number (optional)</param>
         /// <param name="format"> (optional)</param>
         /// <returns>WhoisHistoricalResponse</returns>
-        WhoisHistoricalResponse WhoisHistory(string domainName, int? page = default(int?), string? format = default(string?));
+        WhoisHistoricalResponse WhoisHistory(string domainName, string? format = default(string?));
 
         /// <summary>
         /// Historical WHOIS records for a domain
         /// </summary>
         /// <remarks>
-        /// 
+        /// Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain to fetch historical WHOIS records for</param>
-        /// <param name="page">Page number (optional)</param>
         /// <param name="format"> (optional)</param>
         /// <returns>ApiResponse of WhoisHistoricalResponse</returns>
-        ApiResponse<WhoisHistoricalResponse> WhoisHistoryWithHttpInfo(string domainName, int? page = default(int?), string? format = default(string?));
+        ApiResponse<WhoisHistoricalResponse> WhoisHistoryWithHttpInfo(string domainName, string? format = default(string?));
         /// <summary>
         /// Live WHOIS Lookup
         /// </summary>
@@ -156,29 +157,27 @@ namespace WhoisFreaks.Api
         /// Historical WHOIS records for a domain
         /// </summary>
         /// <remarks>
-        /// 
+        /// Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain to fetch historical WHOIS records for</param>
-        /// <param name="page">Page number (optional)</param>
         /// <param name="format"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WhoisHistoricalResponse</returns>
-        System.Threading.Tasks.Task<WhoisHistoricalResponse> WhoisHistoryAsync(string domainName, int? page = default(int?), string? format = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<WhoisHistoricalResponse> WhoisHistoryAsync(string domainName, string? format = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Historical WHOIS records for a domain
         /// </summary>
         /// <remarks>
-        /// 
+        /// Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain to fetch historical WHOIS records for</param>
-        /// <param name="page">Page number (optional)</param>
         /// <param name="format"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WhoisHistoricalResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WhoisHistoricalResponse>> WhoisHistoryWithHttpInfoAsync(string domainName, int? page = default(int?), string? format = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<WhoisHistoricalResponse>> WhoisHistoryWithHttpInfoAsync(string domainName, string? format = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Live WHOIS Lookup
         /// </summary>
@@ -500,7 +499,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<BulkWhoisResponse>("/v2.0/bulkwhois/live", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v2.0/bulkwhois/live";
+
+            var localVarResponse = this.Client.Post<BulkWhoisResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -571,8 +572,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v2.0/bulkwhois/live";
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<BulkWhoisResponse>("/v2.0/bulkwhois/live", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<BulkWhoisResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -584,28 +587,26 @@ namespace WhoisFreaks.Api
         }
 
         /// <summary>
-        /// Historical WHOIS records for a domain 
+        /// Historical WHOIS records for a domain Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain to fetch historical WHOIS records for</param>
-        /// <param name="page">Page number (optional)</param>
         /// <param name="format"> (optional)</param>
         /// <returns>WhoisHistoricalResponse</returns>
-        public WhoisHistoricalResponse WhoisHistory(string domainName, int? page = default(int?), string? format = default(string?))
+        public WhoisHistoricalResponse WhoisHistory(string domainName, string? format = default(string?))
         {
-            WhoisFreaks.Client.ApiResponse<WhoisHistoricalResponse> localVarResponse = WhoisHistoryWithHttpInfo(domainName, page, format);
+            WhoisFreaks.Client.ApiResponse<WhoisHistoricalResponse> localVarResponse = WhoisHistoryWithHttpInfo(domainName, format);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Historical WHOIS records for a domain 
+        /// Historical WHOIS records for a domain Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain to fetch historical WHOIS records for</param>
-        /// <param name="page">Page number (optional)</param>
         /// <param name="format"> (optional)</param>
         /// <returns>ApiResponse of WhoisHistoricalResponse</returns>
-        public WhoisFreaks.Client.ApiResponse<WhoisHistoricalResponse> WhoisHistoryWithHttpInfo(string domainName, int? page = default(int?), string? format = default(string?))
+        public WhoisFreaks.Client.ApiResponse<WhoisHistoricalResponse> WhoisHistoryWithHttpInfo(string domainName, string? format = default(string?))
         {
             // verify the required parameter 'domainName' is set
             if (domainName == null)
@@ -628,10 +629,6 @@ namespace WhoisFreaks.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(WhoisFreaks.Client.ClientUtils.ParameterToMultiMap("", "domainName", domainName));
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(WhoisFreaks.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
             if (format != null)
             {
                 localVarRequestOptions.QueryParameters.Add(WhoisFreaks.Client.ClientUtils.ParameterToMultiMap("", "format", format));
@@ -644,7 +641,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<WhoisHistoricalResponse>("/v2.0/whois/history", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v2.0/whois/history";
+
+            var localVarResponse = this.Client.Get<WhoisHistoricalResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -656,30 +655,28 @@ namespace WhoisFreaks.Api
         }
 
         /// <summary>
-        /// Historical WHOIS records for a domain 
+        /// Historical WHOIS records for a domain Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain to fetch historical WHOIS records for</param>
-        /// <param name="page">Page number (optional)</param>
         /// <param name="format"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of WhoisHistoricalResponse</returns>
-        public async System.Threading.Tasks.Task<WhoisHistoricalResponse> WhoisHistoryAsync(string domainName, int? page = default(int?), string? format = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WhoisHistoricalResponse> WhoisHistoryAsync(string domainName, string? format = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            WhoisFreaks.Client.ApiResponse<WhoisHistoricalResponse> localVarResponse = await WhoisHistoryWithHttpInfoAsync(domainName, page, format, cancellationToken).ConfigureAwait(false);
+            WhoisFreaks.Client.ApiResponse<WhoisHistoricalResponse> localVarResponse = await WhoisHistoryWithHttpInfoAsync(domainName, format, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Historical WHOIS records for a domain 
+        /// Historical WHOIS records for a domain Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domainName">Domain to fetch historical WHOIS records for</param>
-        /// <param name="page">Page number (optional)</param>
         /// <param name="format"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WhoisHistoricalResponse)</returns>
-        public async System.Threading.Tasks.Task<WhoisFreaks.Client.ApiResponse<WhoisHistoricalResponse>> WhoisHistoryWithHttpInfoAsync(string domainName, int? page = default(int?), string? format = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<WhoisFreaks.Client.ApiResponse<WhoisHistoricalResponse>> WhoisHistoryWithHttpInfoAsync(string domainName, string? format = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'domainName' is set
             if (domainName == null)
@@ -704,10 +701,6 @@ namespace WhoisFreaks.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(WhoisFreaks.Client.ClientUtils.ParameterToMultiMap("", "domainName", domainName));
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(WhoisFreaks.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
             if (format != null)
             {
                 localVarRequestOptions.QueryParameters.Add(WhoisFreaks.Client.ClientUtils.ParameterToMultiMap("", "format", format));
@@ -720,8 +713,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v2.0/whois/history";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<WhoisHistoricalResponse>("/v2.0/whois/history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<WhoisHistoricalResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -787,7 +782,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<WhoisResponse>("/v2.0/whois/live", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v2.0/whois/live";
+
+            var localVarResponse = this.Client.Get<WhoisResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -857,8 +854,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v2.0/whois/live";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<WhoisResponse>("/v2.0/whois/live", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<WhoisResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -930,7 +929,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ReverseWhoisResponse>("/v2.0/whois/reverse", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v2.0/whois/reverse";
+
+            var localVarResponse = this.Client.Get<ReverseWhoisResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1006,8 +1007,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v2.0/whois/reverse";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ReverseWhoisResponse>("/v2.0/whois/reverse", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ReverseWhoisResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

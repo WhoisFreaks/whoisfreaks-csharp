@@ -20,6 +20,7 @@ Dropped Domains. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -41,11 +42,11 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesExpiringDroppedApi(httpClient, config, httpClientHandler);
             var whois = true;  // bool | 
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
 
             try
             {
@@ -123,6 +124,7 @@ Dropped With Backlinks. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -144,11 +146,11 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesExpiringDroppedApi(httpClient, config, httpClientHandler);
             var whois = true;  // bool? |  (optional) 
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
 
             try
             {
@@ -226,6 +228,7 @@ Dropped Domains (JSON). Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -247,11 +250,11 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesExpiringDroppedApi(httpClient, config, httpClientHandler);
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
-            var tlds = "tlds_example";  // string? |  (optional) 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
+            var tlds = "com,net";  // string? |  (optional) 
 
             try
             {
@@ -329,6 +332,7 @@ Expiring Domains. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -350,11 +354,11 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesExpiringDroppedApi(httpClient, config, httpClientHandler);
             var whois = true;  // bool | 
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
 
             try
             {
@@ -432,6 +436,7 @@ Expiring Cleaned WHOIS. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -453,10 +458,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesExpiringDroppedApi(httpClient, config, httpClientHandler);
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly? | yyyy-MM-dd; omit for latest (optional) 
 
             try
             {

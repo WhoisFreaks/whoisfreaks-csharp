@@ -19,6 +19,7 @@ Download the daily malware threat feed (CSV)
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -40,10 +41,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesThreatFeedApi(httpClient, config, httpClientHandler);
-            var date = "date_example";  // string? | Feed date (yyyy-MM-dd); defaults to latest available (optional) 
+            var date = "2026-10-01";  // string? | Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional) 
 
             try
             {
@@ -86,7 +87,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **date** | **string?** | Feed date (yyyy-MM-dd); defaults to latest available | [optional]  |
+| **date** | **string?** | Feed date (yyyy-MM-dd); omit for the full dump of the feed | [optional]  |
 
 ### Return type
 
@@ -99,13 +100,14 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Malware threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots) |  -  |
+| **4XX** | Error response (4XX) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -117,6 +119,7 @@ Download a sample of the malware threat feed (CSV)
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -138,8 +141,8 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesThreatFeedApi(httpClient, config, httpClientHandler);
 
             try
@@ -192,13 +195,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Sample malware threat feed as CSV |  -  |
+| **4XX** | Error response (4XX) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -210,6 +214,7 @@ Download the daily phishing threat feed (CSV)
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -231,10 +236,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesThreatFeedApi(httpClient, config, httpClientHandler);
-            var date = "date_example";  // string? | Feed date (yyyy-MM-dd); defaults to latest available (optional) 
+            var date = "2026-10-01";  // string? | Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional) 
 
             try
             {
@@ -277,7 +282,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **date** | **string?** | Feed date (yyyy-MM-dd); defaults to latest available | [optional]  |
+| **date** | **string?** | Feed date (yyyy-MM-dd); omit for the full dump of the feed | [optional]  |
 
 ### Return type
 
@@ -290,13 +295,14 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Phishing threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots) |  -  |
+| **4XX** | Error response (4XX) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -308,6 +314,7 @@ Download a sample of the phishing threat feed (CSV)
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -329,8 +336,8 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesThreatFeedApi(httpClient, config, httpClientHandler);
 
             try
@@ -383,13 +390,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Sample phishing threat feed as CSV |  -  |
+| **4XX** | Error response (4XX) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -401,6 +409,7 @@ Download the daily spam threat feed (CSV)
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -422,10 +431,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesThreatFeedApi(httpClient, config, httpClientHandler);
-            var date = "date_example";  // string? | Feed date (yyyy-MM-dd); defaults to latest available (optional) 
+            var date = "2026-10-01";  // string? | Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional) 
 
             try
             {
@@ -468,7 +477,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **date** | **string?** | Feed date (yyyy-MM-dd); defaults to latest available | [optional]  |
+| **date** | **string?** | Feed date (yyyy-MM-dd); omit for the full dump of the feed | [optional]  |
 
 ### Return type
 
@@ -481,13 +490,14 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Spam threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots) |  -  |
+| **4XX** | Error response (4XX) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -499,6 +509,7 @@ Download a sample of the spam threat feed (CSV)
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -520,8 +531,8 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesThreatFeedApi(httpClient, config, httpClientHandler);
 
             try
@@ -574,13 +585,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/octet-stream, application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Sample spam threat feed as CSV |  -  |
+| **4XX** | Error response (4XX) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

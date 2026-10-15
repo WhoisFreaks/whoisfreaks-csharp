@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -353,7 +353,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<DomainReputationResponse>("/v1/domain/security", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v1/domain/security";
+
+            var localVarResponse = this.Client.Get<DomainReputationResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -423,8 +425,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v1/domain/security";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DomainReputationResponse>("/v1/domain/security", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DomainReputationResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

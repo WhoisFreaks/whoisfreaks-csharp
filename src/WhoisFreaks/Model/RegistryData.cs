@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -46,8 +46,8 @@ namespace WhoisFreaks.Model
         /// <param name="domainRegistrar">domainRegistrar.</param>
         /// <param name="nameServers">nameServers.</param>
         /// <param name="domainStatus">domainStatus.</param>
-        /// <param name="whoisRawDomain">whoisRawDomain.</param>
-        public RegistryData(string domainName = default(string), string queryTime = default(string), string whoisServer = default(string), string domainRegistered = default(string), string createDate = default(string), string updateDate = default(string), string expiryDate = default(string), RegistrarInformation domainRegistrar = default(RegistrarInformation), List<string> nameServers = default(List<string>), List<string> domainStatus = default(List<string>), string whoisRawDomain = default(string))
+        /// <param name="whoisRawRegistery">Raw registry WHOIS text (field name spelled as the API returns it).</param>
+        public RegistryData(string domainName = default(string), string queryTime = default(string), string whoisServer = default(string), string domainRegistered = default(string), string createDate = default(string), string updateDate = default(string), string expiryDate = default(string), RegistrarInformation domainRegistrar = default(RegistrarInformation), List<string> nameServers = default(List<string>), List<string> domainStatus = default(List<string>), string whoisRawRegistery = default(string))
         {
             this.DomainName = domainName;
             this.QueryTime = queryTime;
@@ -59,7 +59,7 @@ namespace WhoisFreaks.Model
             this.DomainRegistrar = domainRegistrar;
             this.NameServers = nameServers;
             this.DomainStatus = domainStatus;
-            this.WhoisRawDomain = whoisRawDomain;
+            this.WhoisRawRegistery = whoisRawRegistery;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -124,10 +124,11 @@ namespace WhoisFreaks.Model
         public List<string> DomainStatus { get; set; }
 
         /// <summary>
-        /// Gets or Sets WhoisRawDomain
+        /// Raw registry WHOIS text (field name spelled as the API returns it)
         /// </summary>
-        [DataMember(Name = "whois_raw_domain", EmitDefaultValue = false)]
-        public string WhoisRawDomain { get; set; }
+        /// <value>Raw registry WHOIS text (field name spelled as the API returns it)</value>
+        [DataMember(Name = "whois_raw_registery", EmitDefaultValue = false)]
+        public string WhoisRawRegistery { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -153,7 +154,7 @@ namespace WhoisFreaks.Model
             sb.Append("  DomainRegistrar: ").Append(DomainRegistrar).Append("\n");
             sb.Append("  NameServers: ").Append(NameServers).Append("\n");
             sb.Append("  DomainStatus: ").Append(DomainStatus).Append("\n");
-            sb.Append("  WhoisRawDomain: ").Append(WhoisRawDomain).Append("\n");
+            sb.Append("  WhoisRawRegistery: ").Append(WhoisRawRegistery).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

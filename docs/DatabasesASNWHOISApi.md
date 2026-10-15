@@ -17,6 +17,7 @@ ASN WHOIS Snapshot. Returns the file/snapshot described by this operation.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -38,10 +39,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesASNWHOISApi(httpClient, config, httpClientHandler);
-            var date = DateOnly.Parse("2013-10-20");  // DateOnly | 
+            var date = DateOnly.Parse("2026-10-01");  // DateOnly | 
 
             try
             {
@@ -118,6 +119,7 @@ ASN WHOIS Snapshot Status. Returns the file/snapshot described by this operation
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -139,8 +141,8 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new DatabasesASNWHOISApi(httpClient, config, httpClientHandler);
 
             try

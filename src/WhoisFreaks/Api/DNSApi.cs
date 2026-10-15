@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -537,7 +537,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<BulkDnsResponse>("/v2.0/dns/bulk/live", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v2.0/dns/bulk/live";
+
+            var localVarResponse = this.Client.Post<BulkDnsResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -615,8 +617,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v2.0/dns/bulk/live";
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<BulkDnsResponse>("/v2.0/dns/bulk/live", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<BulkDnsResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -695,7 +699,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<HistoricalDnsResponse>("/v2.0/dns/historical", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v2.0/dns/historical";
+
+            var localVarResponse = this.Client.Get<HistoricalDnsResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -778,8 +784,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v2.0/dns/historical";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<HistoricalDnsResponse>("/v2.0/dns/historical", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<HistoricalDnsResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -857,7 +865,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<DnsResponse>("/v2.0/dns/live", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v2.0/dns/live";
+
+            var localVarResponse = this.Client.Get<DnsResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -939,8 +949,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v2.0/dns/live";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DnsResponse>("/v2.0/dns/live", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DnsResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1025,7 +1037,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ReverseDnsResponse>("/v2.1/dns/reverse", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v2.1/dns/reverse";
+
+            var localVarResponse = this.Client.Get<ReverseDnsResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1114,8 +1128,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v2.1/dns/reverse";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ReverseDnsResponse>("/v2.1/dns/reverse", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ReverseDnsResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

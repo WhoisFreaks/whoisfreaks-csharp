@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -48,6 +48,11 @@ namespace WhoisFreaks.Client
 
             public string GetFullUri()
             {
+                // Operations with their own server (e.g. files.whoisfreaks.com) pass an absolute URL.
+                if (_path.StartsWith("https://", StringComparison.OrdinalIgnoreCase) || _path.StartsWith("http://", StringComparison.OrdinalIgnoreCase))
+                {
+                    return _path + _query.Substring(0, _query.Length - 1);
+                }
                 return _baseUrl + _path + _query.Substring(0, _query.Length - 1);
             }
     }

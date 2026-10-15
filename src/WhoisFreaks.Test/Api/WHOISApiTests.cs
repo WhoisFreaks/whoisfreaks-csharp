@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -75,9 +75,8 @@ namespace WhoisFreaks.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string domainName = null;
-            //int? page = null;
             //string? format = null;
-            //var response = instance.WhoisHistory(domainName, page, format);
+            //var response = instance.WhoisHistory(domainName, format);
             //Assert.IsType<WhoisHistoricalResponse>(response);
         }
 

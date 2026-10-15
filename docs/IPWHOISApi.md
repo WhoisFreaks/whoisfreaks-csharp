@@ -16,6 +16,7 @@ WHOIS for an IP address. 1 credit.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -37,10 +38,10 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new IPWHOISApi(httpClient, config, httpClientHandler);
-            var ip = "ip_example";  // string | 
+            var ip = "8.8.8.8";  // string | 
             var format = "json";  // string? |  (optional)  (default to json)
 
             try

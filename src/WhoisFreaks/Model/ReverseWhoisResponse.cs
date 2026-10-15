@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -28,7 +28,7 @@ using OpenAPIDateConverter = WhoisFreaks.Client.OpenAPIDateConverter;
 namespace WhoisFreaks.Model
 {
     /// <summary>
-    /// Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page) as returned by the API.
+    /// Reverse WHOIS response. Pagination keys (total_Result, total_Pages, current_Page) are spelled as the API returns them.
     /// </summary>
     [DataContract(Name = "ReverseWhoisResponse")]
     public partial class ReverseWhoisResponse : IValidatableObject
@@ -52,19 +52,19 @@ namespace WhoisFreaks.Model
         /// <summary>
         /// Gets or Sets TotalResult
         /// </summary>
-        [DataMember(Name = "Total_Result", EmitDefaultValue = false)]
+        [DataMember(Name = "total_Result", EmitDefaultValue = false)]
         public int TotalResult { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalPages
         /// </summary>
-        [DataMember(Name = "Total_Pages", EmitDefaultValue = false)]
+        [DataMember(Name = "total_Pages", EmitDefaultValue = false)]
         public int TotalPages { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentPage
         /// </summary>
-        [DataMember(Name = "Current_Page", EmitDefaultValue = false)]
+        [DataMember(Name = "current_Page", EmitDefaultValue = false)]
         public int CurrentPage { get; set; }
 
         /// <summary>

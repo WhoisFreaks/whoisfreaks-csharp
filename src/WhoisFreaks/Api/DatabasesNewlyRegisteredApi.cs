@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -640,7 +640,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.1/download/domainer/cctld", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.1/download/domainer/cctld";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyCctld", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -713,8 +723,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.1/download/domainer/cctld";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyCctld", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.1/download/domainer/cctld", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -774,7 +794,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.1/download/domainer/cctld/cleaned", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.1/download/domainer/cctld/cleaned";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyCctldCleaned", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -838,8 +868,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.1/download/domainer/cctld/cleaned";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyCctldCleaned", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.1/download/domainer/cctld/cleaned", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -904,7 +944,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<string>>("/v3.1/domains/newly/cctld", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.1/domains/newly/cctld";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyCctldJson", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<List<string>>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -973,8 +1023,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.1/domains/newly/cctld";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyCctldJson", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/v3.1/domains/newly/cctld", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1034,7 +1094,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.1/download/domainer/newly/dns", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.1/download/domainer/newly/dns";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyDns", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1098,8 +1168,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.1/download/domainer/newly/dns";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyDns", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.1/download/domainer/newly/dns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1168,7 +1248,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.1/download/domainer/gtld", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.1/download/domainer/gtld";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyGtld", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1241,8 +1331,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.1/download/domainer/gtld";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyGtld", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.1/download/domainer/gtld", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1302,7 +1402,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.1/download/domainer/gtld/cleaned", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.1/download/domainer/gtld/cleaned";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyGtldCleaned", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1366,8 +1476,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.1/download/domainer/gtld/cleaned";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyGtldCleaned", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.1/download/domainer/gtld/cleaned", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1432,7 +1552,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<string>>("/v3.1/domains/newly/gtld", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.1/domains/newly/gtld";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyGtldJson", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<List<string>>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1501,8 +1631,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.1/domains/newly/gtld";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesNewlyRegisteredApi.DbNewlyGtldJson", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/v3.1/domains/newly/gtld", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

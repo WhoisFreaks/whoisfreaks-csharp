@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -80,6 +80,186 @@ namespace WhoisFreaks.Test.Model
         public void ErrorTest()
         {
             // TODO unit test for the property 'Error'
+        }
+
+        /// <summary>
+        /// Test the property 'QueryTime'
+        /// </summary>
+        [Fact]
+        public void QueryTimeTest()
+        {
+            // TODO unit test for the property 'QueryTime'
+        }
+
+        /// <summary>
+        /// Test the property 'WhoisServer'
+        /// </summary>
+        [Fact]
+        public void WhoisServerTest()
+        {
+            // TODO unit test for the property 'WhoisServer'
+        }
+
+        /// <summary>
+        /// Test the property 'DomainRegistered'
+        /// </summary>
+        [Fact]
+        public void DomainRegisteredTest()
+        {
+            // TODO unit test for the property 'DomainRegistered'
+        }
+
+        /// <summary>
+        /// Test the property 'SecureDns'
+        /// </summary>
+        [Fact]
+        public void SecureDnsTest()
+        {
+            // TODO unit test for the property 'SecureDns'
+        }
+
+        /// <summary>
+        /// Test the property 'DomainHandle'
+        /// </summary>
+        [Fact]
+        public void DomainHandleTest()
+        {
+            // TODO unit test for the property 'DomainHandle'
+        }
+
+        /// <summary>
+        /// Test the property 'CreateDate'
+        /// </summary>
+        [Fact]
+        public void CreateDateTest()
+        {
+            // TODO unit test for the property 'CreateDate'
+        }
+
+        /// <summary>
+        /// Test the property 'UpdateDate'
+        /// </summary>
+        [Fact]
+        public void UpdateDateTest()
+        {
+            // TODO unit test for the property 'UpdateDate'
+        }
+
+        /// <summary>
+        /// Test the property 'ExpiryDate'
+        /// </summary>
+        [Fact]
+        public void ExpiryDateTest()
+        {
+            // TODO unit test for the property 'ExpiryDate'
+        }
+
+        /// <summary>
+        /// Test the property 'DomainRegistrar'
+        /// </summary>
+        [Fact]
+        public void DomainRegistrarTest()
+        {
+            // TODO unit test for the property 'DomainRegistrar'
+        }
+
+        /// <summary>
+        /// Test the property 'ResellerContact'
+        /// </summary>
+        [Fact]
+        public void ResellerContactTest()
+        {
+            // TODO unit test for the property 'ResellerContact'
+        }
+
+        /// <summary>
+        /// Test the property 'RegistrantContact'
+        /// </summary>
+        [Fact]
+        public void RegistrantContactTest()
+        {
+            // TODO unit test for the property 'RegistrantContact'
+        }
+
+        /// <summary>
+        /// Test the property 'AdministrativeContact'
+        /// </summary>
+        [Fact]
+        public void AdministrativeContactTest()
+        {
+            // TODO unit test for the property 'AdministrativeContact'
+        }
+
+        /// <summary>
+        /// Test the property 'TechnicalContact'
+        /// </summary>
+        [Fact]
+        public void TechnicalContactTest()
+        {
+            // TODO unit test for the property 'TechnicalContact'
+        }
+
+        /// <summary>
+        /// Test the property 'BillingContact'
+        /// </summary>
+        [Fact]
+        public void BillingContactTest()
+        {
+            // TODO unit test for the property 'BillingContact'
+        }
+
+        /// <summary>
+        /// Test the property 'EligibilityInfo'
+        /// </summary>
+        [Fact]
+        public void EligibilityInfoTest()
+        {
+            // TODO unit test for the property 'EligibilityInfo'
+        }
+
+        /// <summary>
+        /// Test the property 'AbuseContact'
+        /// </summary>
+        [Fact]
+        public void AbuseContactTest()
+        {
+            // TODO unit test for the property 'AbuseContact'
+        }
+
+        /// <summary>
+        /// Test the property 'NameServers'
+        /// </summary>
+        [Fact]
+        public void NameServersTest()
+        {
+            // TODO unit test for the property 'NameServers'
+        }
+
+        /// <summary>
+        /// Test the property 'DomainStatus'
+        /// </summary>
+        [Fact]
+        public void DomainStatusTest()
+        {
+            // TODO unit test for the property 'DomainStatus'
+        }
+
+        /// <summary>
+        /// Test the property 'WhoisRawDomain'
+        /// </summary>
+        [Fact]
+        public void WhoisRawDomainTest()
+        {
+            // TODO unit test for the property 'WhoisRawDomain'
+        }
+
+        /// <summary>
+        /// Test the property 'RegistryData'
+        /// </summary>
+        [Fact]
+        public void RegistryDataTest()
+        {
+            // TODO unit test for the property 'RegistryData'
         }
     }
 }

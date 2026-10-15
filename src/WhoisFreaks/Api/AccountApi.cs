@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -412,7 +412,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<AccountUsageResponse>("/v1.0/whoisapi/usage", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v1.0/whoisapi/usage";
+
+            var localVarResponse = this.Client.Get<AccountUsageResponse>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -469,8 +471,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v1.0/whoisapi/usage";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<AccountUsageResponse>("/v1.0/whoisapi/usage", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AccountUsageResponse>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -518,7 +522,17 @@ namespace WhoisFreaks.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<DatabaseFileStatus>("/v3.4/status", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.4/status";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("AccountApi.DatabaseFileStatus", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<DatabaseFileStatus>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -570,8 +584,18 @@ namespace WhoisFreaks.Api
 
 
             // make the HTTP request
+            var localVarPath = "/v3.4/status";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("AccountApi.DatabaseFileStatus", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DatabaseFileStatus>("/v3.4/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DatabaseFileStatus>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -624,7 +648,9 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/v1.0/api-key/rotate", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v1.0/api-key/rotate";
+
+            var localVarResponse = this.Client.Get<string>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -681,8 +707,10 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v1.0/api-key/rotate";
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/v1.0/api-key/rotate", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

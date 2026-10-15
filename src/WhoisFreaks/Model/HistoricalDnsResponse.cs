@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -28,7 +28,7 @@ using OpenAPIDateConverter = WhoisFreaks.Client.OpenAPIDateConverter;
 namespace WhoisFreaks.Model
 {
     /// <summary>
-    /// Note: &#39;currenPage&#39; spelling matches the API.
+    /// HistoricalDnsResponse
     /// </summary>
     [DataContract(Name = "HistoricalDnsResponse")]
     public partial class HistoricalDnsResponse : IValidatableObject
@@ -37,15 +37,15 @@ namespace WhoisFreaks.Model
         /// Initializes a new instance of the <see cref="HistoricalDnsResponse" /> class.
         /// </summary>
         /// <param name="totalPages">totalPages.</param>
-        /// <param name="currenPage">currenPage.</param>
+        /// <param name="currentPage">currentPage.</param>
         /// <param name="totalRecords">totalRecords.</param>
-        /// <param name="historicalDns">historicalDns.</param>
-        public HistoricalDnsResponse(int totalPages = default(int), int currenPage = default(int), int totalRecords = default(int), List<DnsResponse> historicalDns = default(List<DnsResponse>))
+        /// <param name="historicalDnsRecords">historicalDnsRecords.</param>
+        public HistoricalDnsResponse(int totalPages = default(int), int currentPage = default(int), int totalRecords = default(int), List<DnsResponse> historicalDnsRecords = default(List<DnsResponse>))
         {
             this.TotalPages = totalPages;
-            this.CurrenPage = currenPage;
+            this.CurrentPage = currentPage;
             this.TotalRecords = totalRecords;
-            this.HistoricalDns = historicalDns;
+            this.HistoricalDnsRecords = historicalDnsRecords;
             this.AdditionalProperties = new Dictionary<string, object>();
         }
 
@@ -56,10 +56,10 @@ namespace WhoisFreaks.Model
         public int TotalPages { get; set; }
 
         /// <summary>
-        /// Gets or Sets CurrenPage
+        /// Gets or Sets CurrentPage
         /// </summary>
-        [DataMember(Name = "currenPage", EmitDefaultValue = false)]
-        public int CurrenPage { get; set; }
+        [DataMember(Name = "currentPage", EmitDefaultValue = false)]
+        public int CurrentPage { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalRecords
@@ -68,10 +68,10 @@ namespace WhoisFreaks.Model
         public int TotalRecords { get; set; }
 
         /// <summary>
-        /// Gets or Sets HistoricalDns
+        /// Gets or Sets HistoricalDnsRecords
         /// </summary>
-        [DataMember(Name = "historicalDns", EmitDefaultValue = false)]
-        public List<DnsResponse> HistoricalDns { get; set; }
+        [DataMember(Name = "historicalDnsRecords", EmitDefaultValue = false)]
+        public List<DnsResponse> HistoricalDnsRecords { get; set; }
 
         /// <summary>
         /// Gets or Sets additional properties
@@ -88,9 +88,9 @@ namespace WhoisFreaks.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class HistoricalDnsResponse {\n");
             sb.Append("  TotalPages: ").Append(TotalPages).Append("\n");
-            sb.Append("  CurrenPage: ").Append(CurrenPage).Append("\n");
+            sb.Append("  CurrentPage: ").Append(CurrentPage).Append("\n");
             sb.Append("  TotalRecords: ").Append(TotalRecords).Append("\n");
-            sb.Append("  HistoricalDns: ").Append(HistoricalDns).Append("\n");
+            sb.Append("  HistoricalDnsRecords: ").Append(HistoricalDnsRecords).Append("\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

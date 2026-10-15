@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -65,12 +65,12 @@ namespace WhoisFreaks.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'CurrenPage'
+        /// Test the property 'CurrentPage'
         /// </summary>
         [Fact]
-        public void CurrenPageTest()
+        public void CurrentPageTest()
         {
-            // TODO unit test for the property 'CurrenPage'
+            // TODO unit test for the property 'CurrentPage'
         }
 
         /// <summary>
@@ -83,12 +83,12 @@ namespace WhoisFreaks.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'HistoricalDns'
+        /// Test the property 'HistoricalDnsRecords'
         /// </summary>
         [Fact]
-        public void HistoricalDnsTest()
+        public void HistoricalDnsRecordsTest()
         {
-            // TODO unit test for the property 'HistoricalDns'
+            // TODO unit test for the property 'HistoricalDnsRecords'
         }
     }
 }

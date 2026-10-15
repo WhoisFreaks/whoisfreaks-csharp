@@ -16,6 +16,7 @@ All subdomains including nested. 2 credits per query.
 
 ### Example
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -37,12 +38,12 @@ namespace Example
             // config.AddApiKeyPrefix("apiKey", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
+            HttpClient httpClient = new HttpClient(httpClientHandler);
             var apiInstance = new SubdomainsApi(httpClient, config, httpClientHandler);
-            var domain = "domain_example";  // string | 
-            var after = DateOnly.Parse("2013-10-20");  // DateOnly? |  (optional) 
-            var before = DateOnly.Parse("2013-10-20");  // DateOnly? |  (optional) 
+            var domain = "whoisfreaks.com";  // string | 
+            var after = DateOnly.Parse("2026-01-01");  // DateOnly? |  (optional) 
+            var before = DateOnly.Parse("2026-10-01");  // DateOnly? |  (optional) 
             var status = "active";  // string? |  (optional) 
             var page = 1;  // int? |  (optional)  (default to 1)
             var format = "json";  // string? |  (optional)  (default to json)

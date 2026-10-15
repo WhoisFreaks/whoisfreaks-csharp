@@ -1,7 +1,7 @@
 /*
  * WhoisFreaks API
  *
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -32,7 +32,7 @@ namespace WhoisFreaks.Api
         /// Download the daily malware threat feed (CSV)
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>FileParameter</returns>
         FileParameter DownloadThreatFeedMalware(string? date = default(string?));
 
@@ -43,7 +43,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>ApiResponse of FileParameter</returns>
         ApiResponse<FileParameter> DownloadThreatFeedMalwareWithHttpInfo(string? date = default(string?));
         /// <summary>
@@ -66,7 +66,7 @@ namespace WhoisFreaks.Api
         /// Download the daily phishing threat feed (CSV)
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>FileParameter</returns>
         FileParameter DownloadThreatFeedPhishing(string? date = default(string?));
 
@@ -77,7 +77,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>ApiResponse of FileParameter</returns>
         ApiResponse<FileParameter> DownloadThreatFeedPhishingWithHttpInfo(string? date = default(string?));
         /// <summary>
@@ -100,7 +100,7 @@ namespace WhoisFreaks.Api
         /// Download the daily spam threat feed (CSV)
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>FileParameter</returns>
         FileParameter DownloadThreatFeedSpam(string? date = default(string?));
 
@@ -111,7 +111,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>ApiResponse of FileParameter</returns>
         ApiResponse<FileParameter> DownloadThreatFeedSpamWithHttpInfo(string? date = default(string?));
         /// <summary>
@@ -146,7 +146,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
         System.Threading.Tasks.Task<FileParameter> DownloadThreatFeedMalwareAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -158,7 +158,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileParameter>> DownloadThreatFeedMalwareWithHttpInfoAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -190,7 +190,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
         System.Threading.Tasks.Task<FileParameter> DownloadThreatFeedPhishingAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -202,7 +202,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileParameter>> DownloadThreatFeedPhishingWithHttpInfoAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -234,7 +234,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
         System.Threading.Tasks.Task<FileParameter> DownloadThreatFeedSpamAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -246,7 +246,7 @@ namespace WhoisFreaks.Api
         /// 
         /// </remarks>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
         System.Threading.Tasks.Task<ApiResponse<FileParameter>> DownloadThreatFeedSpamWithHttpInfoAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -488,7 +488,7 @@ namespace WhoisFreaks.Api
         /// Download the daily malware threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>FileParameter</returns>
         public FileParameter DownloadThreatFeedMalware(string? date = default(string?))
         {
@@ -500,7 +500,7 @@ namespace WhoisFreaks.Api
         /// Download the daily malware threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>ApiResponse of FileParameter</returns>
         public WhoisFreaks.Client.ApiResponse<FileParameter> DownloadThreatFeedMalwareWithHttpInfo(string? date = default(string?))
         {
@@ -511,7 +511,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             var localVarContentType = WhoisFreaks.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -532,7 +533,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.4/download/threat-feed/malware", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.4/download/threat-feed/malware";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedMalware", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -547,7 +558,7 @@ namespace WhoisFreaks.Api
         /// Download the daily malware threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
         public async System.Threading.Tasks.Task<FileParameter> DownloadThreatFeedMalwareAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -560,7 +571,7 @@ namespace WhoisFreaks.Api
         /// Download the daily malware threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
         public async System.Threading.Tasks.Task<WhoisFreaks.Client.ApiResponse<FileParameter>> DownloadThreatFeedMalwareWithHttpInfoAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -573,7 +584,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
 
@@ -595,8 +607,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.4/download/threat-feed/malware";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedMalware", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.4/download/threat-feed/malware", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -632,7 +654,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             var localVarContentType = WhoisFreaks.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -649,7 +672,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.4/download/threat-feed/malware/sample", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.4/download/threat-feed/malware/sample";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedMalwareSample", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -688,7 +721,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
 
@@ -706,8 +740,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.4/download/threat-feed/malware/sample";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedMalwareSample", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.4/download/threat-feed/malware/sample", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -722,7 +766,7 @@ namespace WhoisFreaks.Api
         /// Download the daily phishing threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>FileParameter</returns>
         public FileParameter DownloadThreatFeedPhishing(string? date = default(string?))
         {
@@ -734,7 +778,7 @@ namespace WhoisFreaks.Api
         /// Download the daily phishing threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>ApiResponse of FileParameter</returns>
         public WhoisFreaks.Client.ApiResponse<FileParameter> DownloadThreatFeedPhishingWithHttpInfo(string? date = default(string?))
         {
@@ -745,7 +789,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             var localVarContentType = WhoisFreaks.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -766,7 +811,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.4/download/threat-feed/phishing", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.4/download/threat-feed/phishing";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedPhishing", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -781,7 +836,7 @@ namespace WhoisFreaks.Api
         /// Download the daily phishing threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
         public async System.Threading.Tasks.Task<FileParameter> DownloadThreatFeedPhishingAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -794,7 +849,7 @@ namespace WhoisFreaks.Api
         /// Download the daily phishing threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
         public async System.Threading.Tasks.Task<WhoisFreaks.Client.ApiResponse<FileParameter>> DownloadThreatFeedPhishingWithHttpInfoAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -807,7 +862,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
 
@@ -829,8 +885,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.4/download/threat-feed/phishing";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedPhishing", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.4/download/threat-feed/phishing", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -866,7 +932,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             var localVarContentType = WhoisFreaks.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -883,7 +950,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.4/download/threat-feed/phishing/sample", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.4/download/threat-feed/phishing/sample";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedPhishingSample", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -922,7 +999,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
 
@@ -940,8 +1018,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.4/download/threat-feed/phishing/sample";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedPhishingSample", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.4/download/threat-feed/phishing/sample", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -956,7 +1044,7 @@ namespace WhoisFreaks.Api
         /// Download the daily spam threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>FileParameter</returns>
         public FileParameter DownloadThreatFeedSpam(string? date = default(string?))
         {
@@ -968,7 +1056,7 @@ namespace WhoisFreaks.Api
         /// Download the daily spam threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <returns>ApiResponse of FileParameter</returns>
         public WhoisFreaks.Client.ApiResponse<FileParameter> DownloadThreatFeedSpamWithHttpInfo(string? date = default(string?))
         {
@@ -979,7 +1067,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             var localVarContentType = WhoisFreaks.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1000,7 +1089,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.4/download/threat-feed/spam", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.4/download/threat-feed/spam";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedSpam", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1015,7 +1114,7 @@ namespace WhoisFreaks.Api
         /// Download the daily spam threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileParameter</returns>
         public async System.Threading.Tasks.Task<FileParameter> DownloadThreatFeedSpamAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -1028,7 +1127,7 @@ namespace WhoisFreaks.Api
         /// Download the daily spam threat feed (CSV) 
         /// </summary>
         /// <exception cref="WhoisFreaks.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="date">Feed date (yyyy-MM-dd); defaults to latest available (optional)</param>
+        /// <param name="date">Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileParameter)</returns>
         public async System.Threading.Tasks.Task<WhoisFreaks.Client.ApiResponse<FileParameter>> DownloadThreatFeedSpamWithHttpInfoAsync(string? date = default(string?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -1041,7 +1140,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
 
@@ -1063,8 +1163,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.4/download/threat-feed/spam";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedSpam", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.4/download/threat-feed/spam", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1100,7 +1210,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             var localVarContentType = WhoisFreaks.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1117,7 +1228,17 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileParameter>("/v3.4/download/threat-feed/spam/sample", localVarRequestOptions, this.Configuration);
+            var localVarPath = "/v3.4/download/threat-feed/spam/sample";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedSpamSample", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
+
+            var localVarResponse = this.Client.Get<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1156,7 +1277,8 @@ namespace WhoisFreaks.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
 
@@ -1174,8 +1296,18 @@ namespace WhoisFreaks.Api
             }
 
             // make the HTTP request
+            var localVarPath = "/v3.4/download/threat-feed/spam/sample";
+            // This operation has its own server in the spec (Configuration.OperationServers). Use it
+            // unless Configuration.BasePath was changed from the default, in which case every request
+            // goes to BasePath (useful for mocks and proxies).
+            var localVarOperationServer = this.Configuration.GetOperationServerUrl("DatabasesThreatFeedApi.DownloadThreatFeedSpamSample", 0);
+            if (localVarOperationServer != null && string.Equals(this.Configuration.BasePath?.TrimEnd('/'), "https://api.whoisfreaks.com".TrimEnd('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                localVarPath = localVarOperationServer.TrimEnd('/') + localVarPath;
+            }
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>("/v3.4/download/threat-feed/spam/sample", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileParameter>(localVarPath, localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
