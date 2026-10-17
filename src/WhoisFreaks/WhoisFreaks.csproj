@@ -12,7 +12,7 @@
     <Description>C# WHOIS API client for .NET: live, historical, reverse and bulk WHOIS, DNS lookup, domain availability, typosquatting</Description>
     <Copyright>Copyright (c) 2026 WhoisFreaks</Copyright>
     <RootNamespace>WhoisFreaks</RootNamespace>
-    <Version>0.23.2</Version>
+    <Version>0.24.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\WhoisFreaks.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/WhoisFreaks/whoisfreaks-csharp.git</RepositoryUrl>
